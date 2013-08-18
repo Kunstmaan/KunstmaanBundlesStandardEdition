@@ -38,9 +38,10 @@ Access the `config.php` script from a browser:
 
 If you get any warnings or recommendations, fix them before moving on.
 
-You should also make sure you have [nodeJS][3], Bower and Grunt installed.
+You should also make sure you have [nodeJS][3], Sass, Bower and Grunt installed.
 
     brew install node
+    gem install sass # maybe you need sudo...
     npm install -g bower
     npm install -g grunt
 
