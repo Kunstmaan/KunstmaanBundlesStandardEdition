@@ -3,21 +3,50 @@ language: php
 php:
   - 5.3
   - 5.4
-  - 5.5
-
-matrix:
-  allow_failures:
-    - php: 5.5
 
 before_script:
-    - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+    - ulimit -n 10000
     - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-    - sudo pear config-set auto_discover 1
-    - sudo pear install -f pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
+    - gem install sass
+    - pear config-set auto_discover 1
+    - pear install -f pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
     - phpenv rehash
     - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction install
+    - mysql -e 'create database kunstmaanbundles;'
+    - chmod -R 777 app/cache/ app/logs/
+    - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
+    - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --no-interaction
+    - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
+    - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
+    - npm install -g bower
+    - npm install -g grunt
+    - bower install
+    - npm install
+    - grunt build
+    - app/console --force --no-interaction doctrine:schema:drop
+    - app/console --no-interaction doctrine:schema:create
+    - app/console --no-interaction doctrine:fixtures:load
+    - app/console --no-interaction assets:install web
+    - app/console --no-interaction assetic:dump
+    - app/console --no-interaction cache:clear --env=dev
+    - app/console --no-interaction cache:clear --env=prod
+    - app/console --no-interaction cache:warmup
+    - chmod -R 777 app/cache/ app/logs/
+    - sudo apt-get update > /dev/null
+    - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+    - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
+    - sudo sed -i -e "/DocumentRoot/i\ServerName kunstmaanbundles.local" /etc/apache2/sites-available/default
+    - echo "127.0.0.1 kunstmaanbundles.local" | sudo tee -a /etc/hosts
+    - sudo /etc/init.d/apache2 restart
+    - "sh -e /etc/init.d/xvfb start"
+    - "export DISPLAY=:99.0"
+    - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
+    - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
+    - sleep 5
 
-script: build/build_script
+script:
+    - phpunit -c app
+    - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
 
 notifications:
   email:

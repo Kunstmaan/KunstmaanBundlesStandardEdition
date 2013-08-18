@@ -6,6 +6,10 @@
         <exec executable="${basedir}/sync" failonerror="true" />
     </target>
 
+    <target name="fullreload" description="Run a full reload">
+        <exec executable="${basedir}/bin/fullreload" failonerror="true" />
+    </target>
+
     <target name="build" depends="prepare,vendors"/>
 
     <target name="test" depends="lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit,phpcb,behat"/>
