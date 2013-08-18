@@ -38,10 +38,48 @@ Access the `config.php` script from a browser:
 
 If you get any warnings or recommendations, fix them before moving on.
 
-3) Browsing the CMS administration pages
+You should also make sure you have [nodeJS][3], Bower and Grunt installed.
+
+    brew install node
+    npm install -g bower
+    npm install -g grunt
+
+3) Generating your starting point
+---------------------------------
+
+First of, generate the bundle for your website. Replace ```MyProject``` and ```WebsiteBundle``` with your own namespace and bundle name.
+
+    app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --dir=src
+
+Next up, generate the default website setup. Again replace ```MyProject``` and ```WebsiteBundle``` with the ones used above and replace ```myproject_``` with your preferred prefix (used in database tables)
+
+    app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_"
+
+To get started with Behat tests, you can generate custom tests for your admin interface by running the following. Again, please replace the values.
+
+    app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
+
+For a default implementation, you can also generate a news area using the ArticleBundle.
+
+    app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
+
+Now that all your code is generated, let's make sure all frontend assets are available
+
+    bower install
+    npm install
+    grunt build
+    app/console assets:install web
+    app/console assetic:dump
+
+And create the database and fill it using the fixtures
+
+    - app/console doctrine:schema:create
+    - app/console doctrine:fixtures:load
+
+4) Browsing the CMS administration pages
 ----------------------------------------
 
-Congratulations! You're now ready to use the Kunstmaan Bundles CMS. Browse using your broser to:
+Congratulations! You're now ready to use the Kunstmaan Bundles CMS. Browse to:
 
     http://localhost/path/to/app/en/admin
 
@@ -51,3 +89,4 @@ Enjoy!
 
 [1]:  http://bundles.kunstmaan.be/documentation/getting-started
 [2]:  http://getcomposer.org/
+[3]:  http://nodejs.org/
