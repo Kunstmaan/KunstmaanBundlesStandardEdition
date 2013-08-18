@@ -1,0 +1,90 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.3.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.2.*",
+        "twig/extensions": "1.0.*",
+        "symfony/assetic-bundle": "2.3.*",
+        "symfony/swiftmailer-bundle": "2.3.*",
+        "symfony/monolog-bundle": "2.3.*",
+        "sensio/distribution-bundle": "2.3.*",
+        "sensio/framework-extra-bundle": "2.3.*",
+        "sensio/generator-bundle": "2.3.*",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "ddeboer/data-import": "dev-master",
+        "ddeboer/data-import-bundle": "dev-master",
+        "doctrine/data-fixtures": "1.0.*@dev",
+        "doctrine/doctrine-fixtures-bundle": "2.1.*@dev",
+        "doctrine/doctrine-migrations-bundle": "dev-master@dev",
+        "doctrine/migrations": "dev-master@dev",
+        "gregwar/form-bundle": "dev-master",
+        "knplabs/knp-menu": "2.0.*@dev",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "liip/cache-control-bundle": "dev-master",
+        "liip/imagine-bundle": "dev-master",
+        "pagerfanta/pagerfanta": "dev-master",
+        "raven/raven": "dev-master",
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "dev-master",
+        "jms/security-extra-bundle": "1.5.*",
+        "kunstmaan/admin-bundle": "dev-master",
+        "kunstmaan/adminlist-bundle": "dev-master",
+        "kunstmaan/article-bundle": "dev-master",
+        "kunstmaan/behat-bundle": "dev-master",
+        "kunstmaan/form-bundle": "dev-master",
+        "kunstmaan/generator-bundle": "dev-master",
+        "kunstmaan/media-bundle": "dev-master",
+        "kunstmaan/media-pagepart-bundle": "dev-master",
+        "kunstmaan/newrelicbundle": "dev-master",
+        "kunstmaan/node-bundle": "dev-master",
+        "kunstmaan/node-search-bundle": "dev-master",
+        "kunstmaan/pagepart-bundle": "dev-master",
+        "kunstmaan/search-bundle": "dev-master",
+        "kunstmaan/sentry-bundle": "dev-master",
+        "kunstmaan/seo-bundle": "dev-master",
+        "kunstmaan/sitemap-bundle": "dev-master",
+        "kunstmaan/utilities-bundle": "dev-master",
+        "kunstmaan/live-reload-bundle": "dev-master",
+        "symfony-cmf/routing-bundle": "1.1.*@dev",
+        "symfony-cmf/routing": "1.1.*@dev"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.3-dev"
+        }
+    }
+}

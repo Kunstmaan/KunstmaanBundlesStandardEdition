@@ -1,0 +1,45 @@
+# KunstmaanMediaBundle
+_imagine:
+    resource: .
+    type:     imagine
+
+KunstmaanMediaBundle:
+    resource: "@KunstmaanMediaBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanAdminBundle
+KunstmaanAdminBundle:
+    resource: "@KunstmaanAdminBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanNodeBundle
+KunstmaanNodeBundle:
+    resource: "@KunstmaanNodeBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanPagePartBundle
+KunstmaanPagePartBundle:
+    resource: "@KunstmaanPagePartBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanFormBundle
+KunstmaanFormBundle:
+    resource: "@KunstmaanFormBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanSitemapBundle
+KunstmaanSitemapBundle:
+    resource: "@KunstmaanSitemapBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
