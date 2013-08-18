@@ -16,13 +16,14 @@ default:
             env: test
             debug: true
         Behat\MinkExtension\Extension:
-            base_url: 'http://kunstmaanbundles.local/app_test.php/'
+            base_url: 'http://localhost:8000/app_test.php/'
             #javascript_session: sahi
-            browser_name: firefox
+            browser_name: chrome
             sahi:
             goutte: ~
             selenium2: ~
             files_path: '/../../src/MyProject/WebsiteBundle/Features/Media/'
+
     paths:
         features: features
         bootstrap: %behat.paths.features%/Context

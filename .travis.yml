@@ -7,8 +7,9 @@ php:
 before_script:
     - ulimit -n 10000
     - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
+    - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
     - gem install sass
-    - COMPOSER_ROOT_VERSION=dev-master composer --prefer-dist --dev --no-interaction install
+    - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction install
     - mysql -e 'create database kunstmaanbundles;'
     - chmod -R 777 app/cache/ app/logs/
     - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src  --env=test
@@ -28,12 +29,8 @@ before_script:
     - app/console --no-interaction cache:clear --env=test
     - app/console --no-interaction cache:warmup --env=test
     - chmod -R 777 app/cache/ app/logs/
-    - sudo apt-get update > /dev/null
-    - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
-    - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
-    - sudo sed -i -e "/DocumentRoot/i\ServerName kunstmaanbundles.local" /etc/apache2/sites-available/default
-    - echo "127.0.0.1 kunstmaanbundles.local" | sudo tee -a /etc/hosts
-    - sudo /etc/init.d/apache2 restart
+    - app/console server:run
+    - "wget http://chromedriver.googlecode.com/files/chromedriver_linux32_23.0.1240.0.zip && unzip chromedriver_linux32_23.0.1240.0.zip && sudo mv chromedriver /usr/bin"
     - "sh -e /etc/init.d/xvfb start"
     - "export DISPLAY=:99.0"
     - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
