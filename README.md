@@ -18,7 +18,7 @@ Then, use the `create-project` command to generate a new Symfony application:
 
     php composer.phar create-project kunstmaan/bundles-standard-edition path/to/install
 
-Composer will install Symfony and all its dependencies under the `path/to/install` directory.
+Composer will install the Kunstmaan Bundles CMS and all its dependencies under the `path/to/install` directory.
 
 
 2) Checking your System Configuration

@@ -8,6 +8,7 @@
 /vendor/
 /bin/*
 !bin/fullreload
+!bin/travis_*
 /composer.phar
 .idea
 web/generated-js
