@@ -18,7 +18,7 @@ default:
         Behat\MinkExtension\Extension:
             base_url: 'http://localhost:8000/app_test.php/'
             #javascript_session: sahi
-            browser_name: chrome
+            browser_name: firefox
             sahi:
             goutte: ~
             selenium2: ~
