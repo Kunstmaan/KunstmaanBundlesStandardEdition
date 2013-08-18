@@ -8,7 +8,7 @@ before_script:
     - ulimit -n 10000
     - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
     - gem install sass
-    - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction install
+    - COMPOSER_ROOT_VERSION=dev-master composer --prefer-dist --dev --no-interaction install
     - mysql -e 'create database kunstmaanbundles;'
     - chmod -R 777 app/cache/ app/logs/
     - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
