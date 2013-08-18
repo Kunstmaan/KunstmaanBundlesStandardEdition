@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "kunstmaan/bundles-standard-edition",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "The \"Kunstmaan Bundles Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -82,9 +82,6 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.3-dev"
         }
     }
 }
