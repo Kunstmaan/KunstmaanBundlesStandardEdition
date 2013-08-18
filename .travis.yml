@@ -8,9 +8,6 @@ before_script:
     - ulimit -n 10000
     - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
     - gem install sass
-    - pear config-set auto_discover 1
-    - pear install -f pear.phpqatools.org/phpqatools pear.netpirates.net/phpDox
-    - phpenv rehash
     - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction install
     - mysql -e 'create database kunstmaanbundles;'
     - chmod -R 777 app/cache/ app/logs/
