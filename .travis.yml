@@ -11,23 +11,22 @@ before_script:
     - COMPOSER_ROOT_VERSION=dev-master composer --prefer-dist --dev --no-interaction install
     - mysql -e 'create database kunstmaanbundles;'
     - chmod -R 777 app/cache/ app/logs/
-    - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-    - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --no-interaction
-    - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-    - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
+    - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src  --env=test
+    - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --no-interaction  --env=test
+    - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle" --env=test
+    - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata --env=test
     - npm install -g bower
     - npm install -g grunt
     - bower install
     - npm install
     - grunt build
-    - app/console --force --no-interaction doctrine:schema:drop
-    - app/console --no-interaction doctrine:schema:create
-    - app/console --no-interaction doctrine:fixtures:load
-    - app/console --no-interaction assets:install web
-    - app/console --no-interaction assetic:dump
-    - app/console --no-interaction cache:clear --env=dev
-    - app/console --no-interaction cache:clear --env=prod
-    - app/console --no-interaction cache:warmup
+    - app/console --force --no-interaction doctrine:schema:drop --env=test
+    - app/console --no-interaction doctrine:schema:create --env=test
+    - app/console --no-interaction doctrine:fixtures:load --env=test
+    - app/console --no-interaction assets:install web --env=test
+    - app/console --no-interaction assetic:dump --env=test
+    - app/console --no-interaction cache:clear --env=test
+    - app/console --no-interaction cache:warmup --env=test
     - chmod -R 777 app/cache/ app/logs/
     - sudo apt-get update > /dev/null
     - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
