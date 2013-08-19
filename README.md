@@ -3,7 +3,7 @@ Kunstmaan Bundles Standard Edition [![Build Status](https://travis-ci.org/Kunstm
 
 Welcome to the Kunstmaan Bundles Standard Edition - a fully-functional CMS (content management system) based on Symfony2 that you can use as the skeleton for your websites.
 
-This document contains information on how to download, install, and start using the Kunstmaan Bundles CMS. For a more detailed explanation, see the [Getting Started][1] chapter of the Kunstmaan Bundles Documentation.
+This document contains information on how to download, install, and start using the Kunstmaan Bundles CMS.
 
 1) Installing the Kunstmaan Bundles Standard Edition
 ----------------------------------------------------
@@ -48,28 +48,24 @@ You should also make sure you have [nodeJS][3], Sass, Bower and Grunt installed.
 3) Generating your starting point
 ---------------------------------
 
-First of, generate the bundle for your website. Replace ```MyProject``` and ```WebsiteBundle``` with your own namespace and bundle name.
+First of, generate the bundle for your website.
 
-    app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --dir=src
+    app/console kuma:generate:bundle
 
-Next up, generate the default website setup. Again replace ```MyProject``` and ```WebsiteBundle``` with the ones used above and replace ```myproject_``` with your preferred prefix (used in database tables)
+Next up, generate the default website setup.
 
-    app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_"
+    app/console kuma:generate:default-site
 
-To get started with Behat tests, you can generate custom tests for your admin interface by running the following. Again, please replace the values.
+To get started with Behat tests, you can generate custom tests for your admin interface by running the following.
 
-    app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-
-For a default implementation, you can also generate a news area using the ArticleBundle.
-
-    app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
+    app/console kuma:generate:admin-tests
 
 Now that all your code is generated, let's make sure all frontend assets are available
 
     bower install
     npm install
     grunt build
-    app/console assets:install web
+    app/console assets:install
     app/console assetic:dump
 
 And create the database and fill it using the fixtures
@@ -85,6 +81,25 @@ Congratulations! You're now ready to use the Kunstmaan Bundles CMS. Browse to:
     http://localhost/path/to/app/en/admin
 
 Log in using admin/admin.
+
+5) Doing more than the default pages and pageparts
+--------------------------------------------------
+
+You can also generate a news area using the ArticleBundle. Or any section based on a list with detail view (FAQ, Lexicon, Blog, etc)
+
+    app/console kuma:generate:article
+
+Often you also have some entities that you need to administer (e.g. News autors)
+
+    # Generate the entity
+    app/console kuma:generate:entity
+    # Generate an adminlist for this entity
+    app/console kuma:generate:adminlist
+
+And a Elastic Search bases search engine?
+
+    app/console kuma:generate:searchpage
+
 
 Enjoy!
 
