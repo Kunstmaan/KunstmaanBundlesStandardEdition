@@ -131,3 +131,7 @@ services:
 
 white_october_pagerfanta:
     default_view: twitter_bootstrap
+
+kunstmaan_translator:
+    enabled: true
+    managed_locales: ['nl', 'en', 'de', 'fr']
