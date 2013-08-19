@@ -93,7 +93,7 @@ Often you also have some entities that you need to administer (e.g. News authors
 
     # Generate the entity
     app/console kuma:generate:entity
-    
+
     # Generate an adminlist for this entity
     app/console kuma:generate:adminlist
 
