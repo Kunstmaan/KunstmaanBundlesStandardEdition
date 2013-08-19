@@ -22,7 +22,7 @@ default:
             sahi:
             goutte: ~
             selenium2: ~
-            files_path: '/../../src/MyProject/WebsiteBundle/Features/Media/'
+            files_path: '../../src/MyProject/WebsiteBundle/Features/Media/'
 
     paths:
         features: features

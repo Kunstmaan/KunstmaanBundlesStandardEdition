@@ -27,6 +27,6 @@ chmod -R 777 app/cache/ app/logs/
 app/console server:run &
 sh -e /etc/init.d/xvfb start
 export DISPLAY=:99.0
-wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar
-java -jar selenium-server-standalone-2.31.0.jar > /dev/null &
+wget http://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
+java -jar selenium-server-standalone-2.35.0.jar > /dev/null &
 sleep 5
