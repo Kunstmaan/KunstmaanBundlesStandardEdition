@@ -70,8 +70,8 @@ Now that all your code is generated, let's make sure all frontend assets are ava
 
 And create the database and fill it using the fixtures
 
-    - app/console doctrine:schema:create
-    - app/console doctrine:fixtures:load
+    app/console doctrine:schema:create
+    app/console doctrine:fixtures:load
 
 4) Browsing the CMS administration pages
 ----------------------------------------
@@ -89,10 +89,11 @@ You can also generate a news area using the ArticleBundle. Or any section based 
 
     app/console kuma:generate:article
 
-Often you also have some entities that you need to administer (e.g. News autors)
+Often you also have some entities that you need to administer (e.g. News authors)
 
     # Generate the entity
     app/console kuma:generate:entity
+    
     # Generate an adminlist for this entity
     app/console kuma:generate:adminlist
 
