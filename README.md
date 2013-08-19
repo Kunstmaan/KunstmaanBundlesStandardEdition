@@ -1,11 +1,11 @@
-Kunstmaan Bundles Standard Edition [![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition)
+Kunstmaan Bundles Standard Edition
 ==================================
 
 Welcome to the Kunstmaan Bundles Standard Edition - a fully-functional CMS (content management system) based on Symfony2 that you can use as the skeleton for your websites.
 
 This document contains information on how to download, install, and start using the Kunstmaan Bundles CMS.
 
-1) Installing the Kunstmaan Bundles Standard Edition
+1) Installing the Kunstmaan Bundles SE
 ----------------------------------------------------
 
 As both the Kunstmaan Bundles and Symfony use [Composer][2] to manage its dependencies, the recommended way to create a new project is to use it.
@@ -21,8 +21,8 @@ Then, use the `create-project` command to generate a new Symfony application:
 Composer will install the Kunstmaan Bundles CMS and all its dependencies under the `path/to/install` directory.
 
 
-2) Checking your System Configuration
--------------------------------------
+2) Checking and configuring your website
+----------------------------------------
 
 Before starting coding, make sure that your local system is properly configured for Symfony and the Kunstmaan Bundles.
 
@@ -38,15 +38,15 @@ Access the `config.php` script from a browser:
 
 If you get any warnings or recommendations, fix them before moving on.
 
-You should also make sure you have [nodeJS][3], Sass, Bower and Grunt installed.
+You should also make sure you have [nodejs][3], Sass, Bower and Grunt installed.
 
     brew install node
     gem install sass # maybe you need sudo...
     npm install -g bower
     npm install -g grunt
 
-3) Generating your starting point
----------------------------------
+3) Generating your website
+--------------------------
 
 First of, generate the bundle for your website.
 
