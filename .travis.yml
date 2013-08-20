@@ -10,7 +10,7 @@ before_script:
 
 script:
     - phpunit -c app
-    - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --name AdminMedia --verbose
+    - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
 
 notifications:
   email:
