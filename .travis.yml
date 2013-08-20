@@ -4,8 +4,9 @@ php:
   - 5.4
 
 before_script:
-    - sudo apt-get update -qq
-    - sudo apt-get install -qq libxss1 chromium-browser
+    - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    - sudo apt-get update -qq --force-yes
+    - sudo apt-get install -qq libxss1 google-chrome-stable
     - bin/travis_build_before
 
 script:
