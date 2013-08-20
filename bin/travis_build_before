@@ -32,7 +32,6 @@ unzip chromedriver_linux64_2.2.zip
 sudo mv chromedriver /usr/bin
 #./chromedriver > /dev/null &
 sleep 5
-#wget http://chromedriver.googlecode.com/files/chromedriver_linux32_23.0.1240.0.zip && unzip chromedriver_linux32_23.0.1240.0.zip && sudo mv chromedriver /usr/bin
 wget http://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
 java -jar selenium-server-standalone-2.35.0.jar > /dev/null &
 sleep 5
