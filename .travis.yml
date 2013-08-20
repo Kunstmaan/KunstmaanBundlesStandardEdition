@@ -3,7 +3,9 @@ language: php
 php:
   - 5.4
 
-before_script: bin/travis_build_before
+before_script:
+    - sudo apt-get install libxss1
+    - bin/travis_build_before
 
 script:
     - phpunit -c app
