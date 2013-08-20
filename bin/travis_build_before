@@ -29,7 +29,8 @@ sh -e /etc/init.d/xvfb start
 export DISPLAY=:99.0
 wget http://chromedriver.googlecode.com/files/chromedriver_linux64_2.2.zip
 unzip chromedriver_linux64_2.2.zip
-./chromedriver &
+./chromedriver > /dev/null &
+sleep 5
 wget http://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
 java -jar selenium-server-standalone-2.35.0.jar > /dev/null &
 sleep 5
