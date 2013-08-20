@@ -51,6 +51,11 @@ You should also make sure you have [nodejs][3], Sass, Bower and Grunt installed.
 First of, generate the bundle for your website.
 
     app/console kuma:generate:bundle
+    
+And create the database and fill it using the fixtures
+
+    app/console doctrine:schema:create
+    app/console doctrine:fixtures:load
 
 Next up, generate the default website setup.
 
@@ -68,10 +73,6 @@ Now that all your code is generated, let's make sure all frontend assets are ava
     app/console assets:install
     app/console assetic:dump
 
-And create the database and fill it using the fixtures
-
-    app/console doctrine:schema:create
-    app/console doctrine:fixtures:load
 
 4) Browsing the CMS administration pages
 ----------------------------------------
