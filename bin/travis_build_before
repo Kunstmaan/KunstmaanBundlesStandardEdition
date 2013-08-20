@@ -27,9 +27,9 @@ chmod -R 777 app/cache/ app/logs/
 app/console server:run &
 sh -e /etc/init.d/xvfb start
 export DISPLAY=:99.0
-wget http://chromedriver.googlecode.com/files/chromedriver_linux64_2.2.zip
-unzip chromedriver_linux64_2.2.zip
-sudo mv chromedriver /usr/bin
+#wget http://chromedriver.googlecode.com/files/chromedriver_linux64_2.2.zip
+#unzip chromedriver_linux64_2.2.zip
+#sudo mv chromedriver /usr/bin
 #./chromedriver > /dev/null &
 sleep 5
 wget http://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar
