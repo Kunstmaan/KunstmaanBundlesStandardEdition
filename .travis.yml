@@ -6,7 +6,6 @@ php:
 before_script:
     - sudo apt-get update -qq
     - sudo apt-get install -qq libxss1
-    - sudo apt-get install -qq google-chrome-stable
     - bin/travis_build_before
 
 script:
