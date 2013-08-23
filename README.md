@@ -83,7 +83,24 @@ Congratulations! You're now ready to use the Kunstmaan Bundles CMS. Browse to:
 
 Log in using admin/admin.
 
-5) Doing more than the default pages and pageparts
+5) Creating pages and pageparts
+-------------------------------
+
+Evey CMS needs some custom pages and custom page content blocks. We have two generators to help you creating these. First up, creating a new pagetype:
+
+    app/console kuma:generate:page
+    app/console doctrine:schema:update --force # Update the database (or use a migration)
+
+Make sure to add the little piece of code the generator will mention at the end of the run. After this, you can add this new pagetype in the admin interface.
+
+Creating pageparts works the same way:
+
+    app/console kuma:generate:pagepart
+    app/console doctrine:schema:update --force # Update the database (or use a migration)
+
+You should be able to add this pagepart to your pages at this point.
+
+6) Doing more than the default pages and pageparts
 --------------------------------------------------
 
 You can also generate a news area using the ArticleBundle. Or any section based on a list with detail view (FAQ, Lexicon, Blog, etc)
