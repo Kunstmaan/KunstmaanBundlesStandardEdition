@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Kunstmaan\AdminBundle\KunstmaanAdminBundle(),
             new Kunstmaan\PagePartBundle\KunstmaanPagePartBundle(),
             new Kunstmaan\MediaPagePartBundle\KunstmaanMediaPagePartBundle(),
