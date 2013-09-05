@@ -42,6 +42,7 @@
         "kunstmaan/behat-bundle": "dev-master",
         "kunstmaan/form-bundle": "dev-master",
         "kunstmaan/generator-bundle": "dev-master",
+        "kunstmaan/languagechooser-bundle": "dev-master",
         "kunstmaan/media-bundle": "dev-master",
         "kunstmaan/media-pagepart-bundle": "dev-master",
         "kunstmaan/newrelicbundle": "dev-master",

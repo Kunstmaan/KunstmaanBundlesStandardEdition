@@ -44,7 +44,9 @@ class AppKernel extends Kernel
             new Kunstmaan\SitemapBundle\KunstmaanSitemapBundle(),
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
-            new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle()
+            new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
+            new Kunstmaan\LanguageChooserBundle\KunstmaanLanguageChooserBundle(),
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle()
         );
 
         if (in_array($this->getEnvironment(), array('prod'))){
