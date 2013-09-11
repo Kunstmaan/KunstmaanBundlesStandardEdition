@@ -5,13 +5,12 @@
     "sass-bootstrap": "~2.3.2",
     "bourbon": "latest",
     "jquery": "<2.0.0",
-    "cupcake": "latest",
+    "cupcake": "~1.1.0",
     "socialite": "git://github.com/dbushell/Socialite.git",
     "flexslider": "latest",
     "fitvids": "latest",
     "svgeezy": "latest",
     "jquery-placeholder": "latest",
-    "fancybox": "latest",
-    "flat-ui": "latest"
+    "fancybox": "latest"
   }
 }
