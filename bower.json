@@ -2,9 +2,9 @@
   "name": "kunstmaan-bundles-standard-edition",
   "version": "0.1.0",
   "dependencies": {
-    "sass-bootstrap": "~2.3.2",
+    "sass-bootstrap": "~3.0.0",
     "bourbon": "latest",
-    "jquery": "<2.0.0",
+    "jquery": "~1.10.2",
     "cupcake": "~1.1.0",
     "socialite": "git://github.com/dbushell/Socialite.git",
     "flexslider": "latest",
