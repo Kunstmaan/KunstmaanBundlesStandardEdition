@@ -5,7 +5,7 @@
     "sass-bootstrap": "~2.3.2",
     "bourbon": "latest",
     "jquery": "<2.0.0",
-    "cupcake": "~1.1.0",
+    "cupcake": "~1.2.0",
     "socialite": "git://github.com/dbushell/Socialite.git",
     "flexslider": "latest",
     "fitvids": "latest",
