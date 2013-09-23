@@ -2,7 +2,8 @@ imports:
     - { resource: config_base.yml }
 
 framework:
-    esi:                true
+    esi:                { enabled: true }
+    fragments:          { path: /_fragment }
     translator:         { fallback: %locale% }
     templating:
         assets_version:     v1
@@ -119,7 +120,7 @@ services:
         class: Twig_Extensions_Extension_Intl
         tags:
             - { name: twig.extension }
-           
+
     kunstmaan_logging_introspection:
         class: Monolog\Processor\IntrospectionProcessor
         tags:
