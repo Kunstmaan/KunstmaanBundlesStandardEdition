@@ -115,6 +115,11 @@ services:
         tags:
             - { name: twig.extension }
 
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+           
     kunstmaan_logging_introspection:
         class: Monolog\Processor\IntrospectionProcessor
         tags:
