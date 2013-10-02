@@ -57,9 +57,14 @@ And create the database and fill it using the fixtures
     app/console doctrine:schema:create
     app/console doctrine:fixtures:load
 
-Next up, generate the default website setup.
+Next up, generate the default website setup. This command will also create a simple home page and content page.
 
     app/console kuma:generate:default-site
+    
+If you want some more demo content (admin lists, sub pages, sitemap, contact page, ...) on the generated website, 
+you should run the command below instead.
+
+    app/console kuma:generate:default-site --demosite
 
 To get started with Behat tests, you can generate custom tests for your admin interface by running the following.
 
