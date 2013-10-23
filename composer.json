@@ -22,7 +22,7 @@
         "ddeboer/data-import": "dev-master",
         "ddeboer/data-import-bundle": "dev-master",
         "doctrine/data-fixtures": "1.0.*@dev",
-        "doctrine/doctrine-fixtures-bundle": "2.1.*@dev",
+        "doctrine/doctrine-fixtures-bundle": ">=2.1,<2.3@dev",
         "doctrine/doctrine-migrations-bundle": "dev-master@dev",
         "doctrine/migrations": "dev-master@dev",
         "gregwar/form-bundle": "dev-master",
