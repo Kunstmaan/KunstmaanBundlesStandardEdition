@@ -183,7 +183,7 @@
     <target name="behat">
         <delete dir="${basedir}/build/behat" />
         <mkdir dir="${basedir}/build/behat"/>
-        <exec dir="${basedir}" executable="bin/behat" failonerror="false">
+        <exec dir="${basedir}" executable="bin/behat" failonerror="true">
             <arg line="mainbundle.name"/>
             <arg line="-f"/>
             <arg line="pretty,junit"/>
