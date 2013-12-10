@@ -25,3 +25,6 @@ monolog:
 kunstmaan_sentry:
     enabled: true
     dsn: "%sentry.dsn%"
+
+kunstmaan_new_relic:
+    enabled: true
