@@ -28,4 +28,6 @@ parameters:
     searchindexname:   myproject
     searchindexprefix: myproject
 
-    analytics.google:  UA-XXXXXXX-X
+    #analytics.google:  UA-XXXXXXX-X
+    analytics.googletagmanager: GTM-XXXXXX
+
