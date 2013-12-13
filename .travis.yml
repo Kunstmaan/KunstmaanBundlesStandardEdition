@@ -1,7 +1,14 @@
 language: php
 
+cache:
+  apt: true
+  bundler: true
+  directories:
+    - vendor
+
 php:
   - 5.4
+  - 5.5
 
 before_script:
     - bin/travis_build_before
