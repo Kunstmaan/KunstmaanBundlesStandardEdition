@@ -13,7 +13,8 @@ twig:
         websitetitle: %websitetitle%
         defaultlocale: %defaultlocale%
         requiredlocales: %requiredlocales%
-        ga_code: %analytics.google%
+        #ga_code: %analytics.google%
+        gtm_code: %analytics.googletagmanager%
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
