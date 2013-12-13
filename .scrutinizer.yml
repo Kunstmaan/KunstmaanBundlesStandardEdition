@@ -7,4 +7,11 @@ before_commands:
   - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata --env=test
 tools:
     sensiolabs_security_checker: true
-    php_cs_fixer: true
+    php_cs_fixer:
+        enabled:              false
+        filter:
+            paths:
+              - src/
+        config:
+            level:                all
+    php_analyzer: true
