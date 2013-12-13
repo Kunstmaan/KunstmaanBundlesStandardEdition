@@ -124,7 +124,6 @@ And a Elastic Search bases search engine?
 
     app/console kuma:generate:searchpage
 
-
 Enjoy!
 
 [1]:  http://bundles.kunstmaan.be/documentation/getting-started
