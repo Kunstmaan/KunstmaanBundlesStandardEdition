@@ -18,3 +18,4 @@ tools:
         extensions:
             - js
         enabled:              true
+    sensiolabs_security_checker: true
