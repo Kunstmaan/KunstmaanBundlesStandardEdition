@@ -1,21 +1,10 @@
 before_commands:
-  - gem install sass
   - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction update
   - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src  --env=test
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --no-interaction  --env=test
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle" --env=test
   - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata --env=test
-  - npm install -g bower
-  - npm install -g grunt
-  - bower install
-  - npm install
-  - grunt build
-  - chmod -R 777 app/cache/ app/logs/
 tools:
-    js_hint:
-        use_native_config:    true
-        extensions:
-            - js
-        enabled:              true
     sensiolabs_security_checker: true
+    php_cs_fixer: true
