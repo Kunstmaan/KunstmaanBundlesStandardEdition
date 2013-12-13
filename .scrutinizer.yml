@@ -11,8 +11,6 @@ before_commands:
   - bower install
   - npm install
   - grunt build
-  - app/console --no-interaction assets:install web --env=test
-  - app/console --no-interaction assetic:dump --env=test
   - chmod -R 777 app/cache/ app/logs/
 tools:
     js_hint:
