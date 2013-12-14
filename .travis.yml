@@ -15,7 +15,7 @@ before_script:
   - sudo apt-get install -qq libxss1
   - ulimit -n 10000
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then pecl install apcu; fi;'
+  - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then pecl install apcu-beta; fi;'
   - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - gem install sass
   - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction update
