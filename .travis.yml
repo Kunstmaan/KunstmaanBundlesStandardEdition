@@ -9,6 +9,7 @@ cache:
 php:
   - 5.4
   - 5.5
+  - hhvm
 
 before_script:
   - sudo apt-get update -qq
@@ -52,3 +53,8 @@ script:
 notifications:
   email:
     - travis@kunstmaan.be
+    
+
+matrix:
+  allow_failures:
+    - php: hhvm
