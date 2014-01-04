@@ -126,6 +126,10 @@ And a Elastic Search bases search engine?
 
 Enjoy!
 
+[![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](http://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition)
+[![Analytics](https://ga-beacon.appspot.com/UA-3160735-7/Kunstmaan/KunstmaanBundlesStandardEdition)](https://github.com/igrigorik/ga-beacon)
+
+
 [1]:  http://bundles.kunstmaan.be/documentation/getting-started
 [2]:  http://getcomposer.org/
 [3]:  http://nodejs.org/
