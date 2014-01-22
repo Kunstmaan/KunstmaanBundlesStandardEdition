@@ -31,7 +31,6 @@
         "liip/cache-control-bundle": "dev-master",
         "liip/imagine-bundle": "dev-master",
         "pagerfanta/pagerfanta": "dev-master",
-        "raven/raven": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "dev-master",
