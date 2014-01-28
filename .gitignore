@@ -23,3 +23,5 @@ web/frontend
 *.sublime-workspace
 node_modules/
 web/vendor/
+.sass-cache/
+web/css
