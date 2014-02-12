@@ -6,6 +6,7 @@
     "bourbon": "latest",
     "jquery": "~1.10.2",
     "cupcake": "~1.2.0",
+    "html5shiv": "~3.7.0",
     "socialite": "git://github.com/dbushell/Socialite.git",
     "flexslider": "latest",
     "fitvids": "latest",
