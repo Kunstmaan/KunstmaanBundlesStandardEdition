@@ -57,7 +57,8 @@
         "kunstmaan/live-reload-bundle": "dev-master",
         "kunstmaan/translator-bundle": "dev-master",
         "symfony-cmf/routing-bundle": "1.1.*@dev",
-        "symfony-cmf/routing": "1.1.*@dev"
+        "symfony-cmf/routing": "1.1.*@dev",
+        "phpoffice/phpexcel": "dev-master@dev"
     },
     "scripts": {
         "post-install-cmd": [
