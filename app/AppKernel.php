@@ -49,10 +49,6 @@ class AppKernel extends Kernel
             new Lunetics\LocaleBundle\LuneticsLocaleBundle()
         );
 
-        if (in_array($this->getEnvironment(), array('prod'))){
-            $bundles[] = new Kunstmaan\SentryBundle\KunstmaanSentryBundle();
-        }
-
         if (in_array($this->getEnvironment(), array('dev'))){
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
         }

@@ -50,7 +50,6 @@
         "kunstmaan/node-search-bundle": "dev-master",
         "kunstmaan/pagepart-bundle": "dev-master",
         "kunstmaan/search-bundle": "dev-master",
-        "kunstmaan/sentry-bundle": "dev-master",
         "kunstmaan/seo-bundle": "dev-master",
         "kunstmaan/sitemap-bundle": "dev-master",
         "kunstmaan/utilities-bundle": "dev-master",
@@ -58,7 +57,8 @@
         "kunstmaan/translator-bundle": "dev-master",
         "symfony-cmf/routing-bundle": "1.1.*@dev",
         "symfony-cmf/routing": "1.1.*@dev",
-        "phpoffice/phpexcel": "dev-master@dev"
+        "phpoffice/phpexcel": "dev-master@dev",
+        "raven/raven": "*"
     },
     "scripts": {
         "post-install-cmd": [
