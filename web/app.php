@@ -2,8 +2,11 @@
 
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Debug\Debug;
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
+
+Debug::enable(null, false);
 
 if(extension_loaded('apc') && ini_get('apc.enabled')){
     // Use APC for autoloading to improve performance.
