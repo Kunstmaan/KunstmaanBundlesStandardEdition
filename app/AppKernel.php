@@ -39,15 +39,15 @@ class AppKernel extends Kernel
             new Kunstmaan\SearchBundle\KunstmaanSearchBundle(),
             new Kunstmaan\NodeSearchBundle\KunstmaanNodeSearchBundle(),
             new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle(),
-            new Kunstmaan\NewRelicBundle\KunstmaanNewRelicBundle(),
             new Kunstmaan\BehatBundle\KunstmaanBehatBundle(),
             new Kunstmaan\SitemapBundle\KunstmaanSitemapBundle(),
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
             new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
             new Kunstmaan\LanguageChooserBundle\KunstmaanLanguageChooserBundle(),
-            new Lunetics\LocaleBundle\LuneticsLocaleBundle()
-        );
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
+    );
 
         if (in_array($this->getEnvironment(), array('dev'))){
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();

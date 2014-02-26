@@ -45,7 +45,6 @@
         "kunstmaan/languagechooser-bundle": "dev-master",
         "kunstmaan/media-bundle": "dev-master",
         "kunstmaan/media-pagepart-bundle": "dev-master",
-        "kunstmaan/newrelicbundle": "dev-master",
         "kunstmaan/node-bundle": "dev-master",
         "kunstmaan/node-search-bundle": "dev-master",
         "kunstmaan/pagepart-bundle": "dev-master",
@@ -58,7 +57,8 @@
         "symfony-cmf/routing-bundle": "1.1.*@dev",
         "symfony-cmf/routing": "1.1.*@dev",
         "phpoffice/phpexcel": "dev-master@dev",
-        "raven/raven": "*"
+        "raven/raven": "*",
+        "ekino/newrelic-bundle": "~1.2.2"
     },
     "scripts": {
         "post-install-cmd": [

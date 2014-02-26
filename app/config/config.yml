@@ -139,3 +139,9 @@ white_october_pagerfanta:
 kunstmaan_translator:
     enabled: true
     managed_locales: ['nl', 'en', 'de', 'fr']
+
+ekino_new_relic:
+    enabled:                    true
+    logging:                    true
+    log_exceptions:             true
+    log_commands:               true

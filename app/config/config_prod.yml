@@ -26,13 +26,6 @@ monolog:
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
 
-kunstmaan_sentry:
-    enabled: true
-    dsn: "%sentry.dsn%"
-
-kunstmaan_new_relic:
-    enabled: true
-
 liip_cache_control:
     rules:
         - { path: /admin, controls: { private: true, max_age: 0 } }
