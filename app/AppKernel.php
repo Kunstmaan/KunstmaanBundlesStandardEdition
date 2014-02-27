@@ -44,8 +44,6 @@ class AppKernel extends Kernel
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
             new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
-            new Kunstmaan\LanguageChooserBundle\KunstmaanLanguageChooserBundle(),
-            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
     );
 
