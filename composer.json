@@ -29,7 +29,7 @@
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "liip/cache-control-bundle": "dev-master",
-        "liip/imagine-bundle": "dev-master",
+        "liip/imagine-bundle": "v0.20.2",
         "pagerfanta/pagerfanta": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
