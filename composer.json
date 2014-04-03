@@ -9,7 +9,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "1.2.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.3.*",
@@ -19,45 +19,35 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "ddeboer/data-import": "dev-master",
-        "ddeboer/data-import-bundle": "dev-master",
-        "doctrine/data-fixtures": "1.0.*@dev",
-        "doctrine/doctrine-fixtures-bundle": ">=2.1,<2.3@dev",
-        "doctrine/doctrine-migrations-bundle": "dev-master@dev",
-        "doctrine/migrations": "dev-master@dev",
-        "gregwar/form-bundle": "dev-master",
+
+        "kunstmaan/admin-bundle": "2.3.*@dev",
+        "kunstmaan/adminlist-bundle": "2.3.*@dev",
+        "kunstmaan/article-bundle": "2.3.*@dev",
+        "kunstmaan/form-bundle": "2.3.*@dev",
+        "kunstmaan/media-bundle": "2.3.*@dev",
+        "kunstmaan/media-pagepart-bundle": "2.3.*@dev",
+        "kunstmaan/node-bundle": "2.3.*@dev",
+        "kunstmaan/node-search-bundle": "2.3.*@dev",
+        "kunstmaan/pagepart-bundle": "2.3.*@dev",
+        "kunstmaan/search-bundle": "2.3.*@dev",
+        "kunstmaan/seo-bundle": "2.3.*@dev",
+        "kunstmaan/sitemap-bundle": "2.3.*@dev",
+        "kunstmaan/utilities-bundle": "2.3.*",
+        "kunstmaan/translator-bundle": "2.3.*@dev",
+        "raven/raven": "~0.8",
+        "liip/cache-control-bundle": "~1.0.7",
+        "ekino/newrelic-bundle": "~1.2.2",
+
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "liip/cache-control-bundle": "dev-master",
-        "liip/imagine-bundle": "v0.20.2",
-        "pagerfanta/pagerfanta": "dev-master",
-        "stof/doctrine-extensions-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master",
-        "white-october/pagerfanta-bundle": "dev-master",
-        "jms/security-extra-bundle": "1.5.*",
-        "kunstmaan/admin-bundle": "dev-master",
-        "kunstmaan/adminlist-bundle": "dev-master",
-        "kunstmaan/article-bundle": "dev-master",
-        "kunstmaan/behat-bundle": "dev-master",
-        "kunstmaan/form-bundle": "dev-master",
-        "kunstmaan/generator-bundle": "dev-master",
-        "fzaninotto/faker": "dev-master",
-        "kunstmaan/media-bundle": "dev-master",
-        "kunstmaan/media-pagepart-bundle": "dev-master",
-        "kunstmaan/node-bundle": "dev-master",
-        "kunstmaan/node-search-bundle": "dev-master",
-        "kunstmaan/pagepart-bundle": "dev-master",
-        "kunstmaan/search-bundle": "dev-master",
-        "kunstmaan/seo-bundle": "dev-master",
-        "kunstmaan/sitemap-bundle": "dev-master",
-        "kunstmaan/utilities-bundle": "dev-master",
-        "kunstmaan/live-reload-bundle": "dev-master",
-        "kunstmaan/translator-bundle": "dev-master",
-        "symfony-cmf/routing-bundle": "1.1.*@dev",
-        "symfony-cmf/routing": "1.1.*@dev",
-        "phpoffice/phpexcel": "dev-master@dev",
-        "raven/raven": "*",
-        "ekino/newrelic-bundle": "~1.2.2"
+        "stof/doctrine-extensions-bundle": "1.1.*@dev",
+        "ddeboer/data-import-bundle": "dev-master",
+        "fzaninotto/faker": "1.4.*@dev"
+    },
+    "require-dev": {
+        "kunstmaan/behat-bundle": "2.3.*@dev",
+        "kunstmaan/generator-bundle": "2.3.*@dev",
+        "kunstmaan/live-reload-bundle": "2.3.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -84,6 +74,27 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.3.x-dev"
         }
-    }
+    },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanAdminBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanAdminListBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanArticleBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanNodeSearchBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanMediaBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanFormBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanNodeBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanPagePartBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanSearchBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanMediaPagePartBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanSeoBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanSitemapBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanGeneratorBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanBehatBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanLiveReloadBundle.git" },
+        { "type": "vcs", "url": "https://github.com/roderik/KunstmaanTranslatorBundle.git" }
+    ]
 }
