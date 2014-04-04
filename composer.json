@@ -40,7 +40,7 @@
         
         "jms/security-extra-bundle": "~1.5.1",
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
-        "doctrine/migrations": "~1.0@dev"
+        "doctrine/migrations": "~1.0@dev",
 
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
