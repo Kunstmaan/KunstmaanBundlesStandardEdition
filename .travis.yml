@@ -24,7 +24,7 @@ before_script:
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then pecl install apcu-beta; fi;'
   - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - gem install sass
-  - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev --no-interaction update
+  - composer --prefer-source --no-interaction update
   - mysql -e 'create database kunstmaanbundles;'
   - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src  --env=test
