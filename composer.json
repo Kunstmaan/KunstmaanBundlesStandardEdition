@@ -37,6 +37,7 @@
         "raven/raven": "~0.8",
         "liip/cache-control-bundle": "~1.0.7",
         "ekino/newrelic-bundle": "~1.2.2",
+        "jms/security-extra-bundle": "~1.5.1",
 
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
