@@ -9,7 +9,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "1.2.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.3.*",
@@ -19,28 +19,11 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "ddeboer/data-import": "dev-master",
-        "ddeboer/data-import-bundle": "dev-master",
-        "doctrine/data-fixtures": "1.0.*@dev",
-        "doctrine/doctrine-fixtures-bundle": ">=2.1,<2.3@dev",
-        "doctrine/doctrine-migrations-bundle": "dev-master@dev",
-        "doctrine/migrations": "dev-master@dev",
-        "gregwar/form-bundle": "~2.4",
-        "knplabs/knp-menu": "2.0.*@dev",
-        "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "liip/cache-control-bundle": "dev-master",
-        "liip/imagine-bundle": "v0.20.2",
-        "pagerfanta/pagerfanta": "dev-master",
-        "stof/doctrine-extensions-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "1.3.*",
-        "white-october/pagerfanta-bundle": "dev-master",
-        "jms/security-extra-bundle": "1.5.*",
+
         "kunstmaan/admin-bundle": "2.3.*",
         "kunstmaan/adminlist-bundle": "2.3.*",
         "kunstmaan/article-bundle": "2.3.*",
-        "kunstmaan/behat-bundle": "2.3.*",
         "kunstmaan/form-bundle": "2.3.*",
-        "kunstmaan/generator-bundle": "2.3.*",
         "kunstmaan/media-bundle": "2.3.*",
         "kunstmaan/media-pagepart-bundle": "2.3.*",
         "kunstmaan/node-bundle": "2.3.*",
@@ -50,14 +33,20 @@
         "kunstmaan/seo-bundle": "2.3.*",
         "kunstmaan/sitemap-bundle": "2.3.*",
         "kunstmaan/utilities-bundle": "2.3.*",
-        "kunstmaan/live-reload-bundle": "2.3.*",
         "kunstmaan/translator-bundle": "2.3.*",
-        "fzaninotto/faker": "dev-master",
-        "symfony-cmf/routing-bundle": "1.1.*@dev",
-        "symfony-cmf/routing": "1.1.*@dev",
-        "phpoffice/phpexcel": "1.8.*",
-        "raven/raven": "*",
-        "ekino/newrelic-bundle": "~1.2.2"
+        "raven/raven": "~0.8",
+        "liip/cache-control-bundle": "~1.0.7",
+        "ekino/newrelic-bundle": "~1.2.2",
+
+        "knplabs/knp-menu": "2.0.*@dev",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "stof/doctrine-extensions-bundle": "1.1.*@dev",
+        "fzaninotto/faker": "1.4.*@dev"
+    },
+    "require-dev": {
+        "kunstmaan/behat-bundle": "2.3.*",
+        "kunstmaan/generator-bundle": "2.3.*",
+        "kunstmaan/live-reload-bundle": "2.3.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -84,6 +73,9 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.3.x-dev"
         }
     }
 }
