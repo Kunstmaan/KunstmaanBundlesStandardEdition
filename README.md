@@ -14,9 +14,13 @@ If you don't have Composer yet, download it following the instructions on http:/
 
     curl -s http://getcomposer.org/installer | php
 
-Then, use the `create-project` command to generate a new Symfony application:
+Then, use the `create-project` command to generate a new application. For the latest stable release (2.3.* based on Symfony 2.3) run:
 
     php composer.phar create-project kunstmaan/bundles-standard-edition path/to/install
+    
+For the latest dev release (2.4 based on Symfony 2.4 and up) run:
+
+    php composer.phar create-project kunstmaan/bundles-standard-edition path/to/install -s dev
 
 Composer will install the Kunstmaan Bundles CMS and all its dependencies under the `path/to/install` directory.
 
