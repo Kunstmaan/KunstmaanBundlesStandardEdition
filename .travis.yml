@@ -58,7 +58,6 @@ script:
 notifications:
   email:
     - travis@kunstmaan.be
-    
 
 matrix:
   allow_failures:
