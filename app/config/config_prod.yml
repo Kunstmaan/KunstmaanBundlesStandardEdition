@@ -20,7 +20,7 @@ monolog:
         sentry:
             type:  raven
             dsn:   %sentry.dsn%
-            level: error
+            level: critical
         nested:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
