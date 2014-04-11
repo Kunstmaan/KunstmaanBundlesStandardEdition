@@ -1,0 +1,1 @@
+* * * * * /<path to>/app/console kuma:nodes:cron --env=prod
