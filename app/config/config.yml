@@ -132,6 +132,8 @@ services:
     kunstmaan_logging_formatter:
         class: Monolog\Formatter\LineFormatter
 
+    kunstmaan_newrelic_naming_strategy:
+        class: Kunstmaan\UtilitiesBundle\Helper\UrlTransactionNamingStrategy
 
 white_october_pagerfanta:
     default_view: twitter_bootstrap
@@ -141,7 +143,9 @@ kunstmaan_translator:
     managed_locales: ['nl', 'en', 'de', 'fr']
 
 ekino_new_relic:
-    enabled:                    true
-    logging:                    true
-    log_exceptions:             true
-    log_commands:               true
+    enabled:        true
+    logging:        false
+    log_exceptions: true
+    log_commands:   true
+    transaction_naming: service
+    transaction_naming_service: kunstmaan_newrelic_naming_strategy
