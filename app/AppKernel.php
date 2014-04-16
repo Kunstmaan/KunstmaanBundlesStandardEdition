@@ -44,8 +44,9 @@ class AppKernel extends Kernel
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
             new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
-            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
-    );
+	    new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
+	    new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
+	);
 
         if (in_array($this->getEnvironment(), array('dev'))){
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
