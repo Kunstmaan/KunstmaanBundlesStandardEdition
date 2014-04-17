@@ -17,6 +17,7 @@ matrix:
     - php: hhvm
 
 before_script:
+  - composer selfupdate
   - sudo apt-get update -qq
   - sudo apt-get install -qq libxss1
   - ulimit -n 10000
