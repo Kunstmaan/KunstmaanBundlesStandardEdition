@@ -34,7 +34,7 @@
         "kunstmaan/sitemap-bundle": "2.3.*",
         "kunstmaan/utilities-bundle": "2.3.*",
         "kunstmaan/translator-bundle": "2.3.*",
-        "kunstmaan/redirect-bundle": "2.3.*"
+        "kunstmaan/redirect-bundle": "2.3.*",
         "raven/raven": "~0.8",
         "liip/cache-control-bundle": "~1.0.7",
         "ekino/newrelic-bundle": "~1.2.2",
