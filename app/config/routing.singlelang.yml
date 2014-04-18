@@ -36,3 +36,8 @@ KunstmaanSitemapBundle:
 KunstmaanTranslatorBundle:
     resource: "@KunstmaanTranslatorBundle/Resources/config/routing.yml"
     prefix:   /
+
+# KunstmaanUserManagementBundle
+KunstmaanUserManagementBundle:
+    resource: "@KunstmaanUserManagementBundle/Resources/config/routing.yml"
+    prefix:   /

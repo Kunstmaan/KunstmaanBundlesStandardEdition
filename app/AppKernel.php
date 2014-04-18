@@ -44,11 +44,12 @@ class AppKernel extends Kernel
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
             new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
-	    new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
-	    new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
-	);
+            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
+            new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
+            new Kunstmaan\UserManagementBundle\KunstmaanUserManagementBundle(),
+        );
 
-        if (in_array($this->getEnvironment(), array('dev'))){
+        if (in_array($this->getEnvironment(), array('dev'))) {
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
         }
 
@@ -63,6 +64,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }
