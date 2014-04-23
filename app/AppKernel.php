@@ -47,6 +47,7 @@ class AppKernel extends Kernel
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
             new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
             new Kunstmaan\UserManagementBundle\KunstmaanUserManagementBundle(),
+            new Kunstmaan\DashboardBundle\KunstmaanDashboardBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev'))) {
