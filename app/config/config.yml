@@ -24,10 +24,10 @@ assetic:
         cssrewrite: ~
         scss: ~
         uglifyjs2:
-            bin: uglifyjs
+            bin: /usr/local/bin/uglifyjs
             compress: true
         uglifycss:
-            bin: uglifycss
+            bin: /usr/local/bin/uglifycss
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:
