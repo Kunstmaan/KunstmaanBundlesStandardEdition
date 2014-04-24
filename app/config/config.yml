@@ -23,6 +23,11 @@ assetic:
     filters:
         cssrewrite: ~
         scss: ~
+        uglifyjs2:
+            bin: /usr/local/bin/uglifyjs
+            compress: true
+        uglifycss:
+            bin: /usr/local/bin/uglifycss
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:
@@ -141,6 +146,9 @@ white_october_pagerfanta:
 kunstmaan_translator:
     enabled: true
     managed_locales: ['nl', 'en', 'de', 'fr']
+
+kunstmaan_admin:
+    dashboard_route: 'kunstmaan_dashboard'
 
 ekino_new_relic:
     enabled:        true

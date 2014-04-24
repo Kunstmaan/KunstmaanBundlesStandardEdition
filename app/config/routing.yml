@@ -65,6 +65,13 @@ KunstmaanUserManagementBundle:
     requirements:
         _locale: %requiredlocales%
 
+# KunstmaanDashboardBundle
+KunstmaanDashboardBundle:
+    resource: "@KunstmaanDashboardBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
 # KunstmaanLanguageChooserBundle
 _languagechooser:
     resource: .

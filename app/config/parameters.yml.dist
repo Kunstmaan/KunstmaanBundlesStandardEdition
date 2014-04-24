@@ -31,3 +31,7 @@ parameters:
     analytics.googletagmanager: GTM-XXXXXX
 
     aviary_api_key:     Register on http://developers.aviary.com/
+
+    google.api.client_id: ''
+    google.api.client_secret: ''
+    google.api.dev_key: ''
