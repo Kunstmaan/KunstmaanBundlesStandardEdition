@@ -38,8 +38,6 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Kunstmaan\SearchBundle\KunstmaanSearchBundle(),
             new Kunstmaan\NodeSearchBundle\KunstmaanNodeSearchBundle(),
-            new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle(),
-            new Kunstmaan\BehatBundle\KunstmaanBehatBundle(),
             new Kunstmaan\SitemapBundle\KunstmaanSitemapBundle(),
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
@@ -52,9 +50,11 @@ class AppKernel extends Kernel
 
         if (in_array($this->getEnvironment(), array('dev'))) {
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
+            $bundles[] = new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle();
         }
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            $bundles[] = new Kunstmaan\BehatBundle\KunstmaanBehatBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
