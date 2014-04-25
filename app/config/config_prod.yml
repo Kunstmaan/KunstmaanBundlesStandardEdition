@@ -11,6 +11,14 @@ doctrine:
         result_cache_driver: apc
         query_cache_driver: apc
 
+assetic:
+    filters:
+        uglifyjs2:
+            bin: /usr/bin/uglifyjs
+            compress: true
+        uglifycss:
+            bin: /usr/bin/uglifycss
+
 monolog:
     handlers:
         main:
