@@ -11,6 +11,14 @@ doctrine:
         result_cache_driver: apc
         query_cache_driver: apc
 
+assetic:
+    filters:
+        uglifyjs2:
+            bin: /usr/bin/uglifyjs
+            compress: true
+        uglifycss:
+            bin: /usr/bin/uglifycss
+
 monolog:
     handlers:
         main:
@@ -20,7 +28,7 @@ monolog:
         sentry:
             type:  raven
             dsn:   %sentry.dsn%
-            level: error
+            level: critical
         nested:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log

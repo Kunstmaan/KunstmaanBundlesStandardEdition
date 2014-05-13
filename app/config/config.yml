@@ -23,6 +23,11 @@ assetic:
     filters:
         cssrewrite: ~
         scss: ~
+        uglifyjs2:
+            bin: /usr/local/bin/uglifyjs
+            compress: true
+        uglifycss:
+            bin: /usr/local/bin/uglifycss
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:
@@ -132,6 +137,8 @@ services:
     kunstmaan_logging_formatter:
         class: Monolog\Formatter\LineFormatter
 
+    kunstmaan_newrelic_naming_strategy:
+        class: Kunstmaan\UtilitiesBundle\Helper\UrlTransactionNamingStrategy
 
 white_october_pagerfanta:
     default_view: twitter_bootstrap
@@ -140,8 +147,13 @@ kunstmaan_translator:
     enabled: true
     managed_locales: ['nl', 'en', 'de', 'fr']
 
+kunstmaan_admin:
+    dashboard_route: 'kunstmaan_dashboard'
+
 ekino_new_relic:
-    enabled:                    true
-    logging:                    true
-    log_exceptions:             true
-    log_commands:               true
+    enabled:        true
+    logging:        false
+    log_exceptions: true
+    log_commands:   true
+    transaction_naming: service
+    transaction_naming_service: kunstmaan_newrelic_naming_strategy

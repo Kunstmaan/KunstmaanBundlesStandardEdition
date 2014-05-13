@@ -51,6 +51,27 @@ KunstmaanTranslatorBundle:
     requirements:
         _locale: %requiredlocales%
 
+# KunstmaanRedirectBundle
+KunstmaanRedirectBundle:
+    resource: "@KunstmaanRedirectBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanUserManagementBundle
+KunstmaanUserManagementBundle:
+    resource: "@KunstmaanUserManagementBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
+# KunstmaanDashboardBundle
+KunstmaanDashboardBundle:
+    resource: "@KunstmaanDashboardBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: %requiredlocales%
+
 # KunstmaanLanguageChooserBundle
 _languagechooser:
     resource: .

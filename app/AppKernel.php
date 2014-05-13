@@ -38,20 +38,23 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Kunstmaan\SearchBundle\KunstmaanSearchBundle(),
             new Kunstmaan\NodeSearchBundle\KunstmaanNodeSearchBundle(),
-            new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle(),
-            new Kunstmaan\BehatBundle\KunstmaanBehatBundle(),
             new Kunstmaan\SitemapBundle\KunstmaanSitemapBundle(),
             new Kunstmaan\ArticleBundle\KunstmaanArticleBundle(),
             new Liip\CacheControlBundle\LiipCacheControlBundle(),
             new Kunstmaan\TranslatorBundle\KunstmaanTranslatorBundle(),
-            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
-    );
+            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
+            new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
+            new Kunstmaan\UserManagementBundle\KunstmaanUserManagementBundle(),
+            new Kunstmaan\DashboardBundle\KunstmaanDashboardBundle(),
+        );
 
-        if (in_array($this->getEnvironment(), array('dev'))){
+        if (in_array($this->getEnvironment(), array('dev'))) {
             $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
+            $bundles[] = new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle();
         }
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            $bundles[] = new Kunstmaan\BehatBundle\KunstmaanBehatBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
@@ -62,6 +65,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }
