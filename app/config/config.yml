@@ -20,6 +20,7 @@ twig:
 
 assetic:
     #bundles: ~
+    node: /usr/local/bin/node
     filters:
         cssrewrite: ~
         scss: ~
