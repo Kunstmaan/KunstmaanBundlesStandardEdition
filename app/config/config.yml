@@ -20,15 +20,15 @@ twig:
 
 assetic:
     #bundles: ~
-    node: /usr/local/bin/node
+    node: /usr/bin/node
     filters:
         cssrewrite: ~
         scss: ~
         uglifyjs2:
-            bin: /usr/local/bin/uglifyjs
+            bin: /usr/bin/uglifyjs
             compress: true
         uglifycss:
-            bin: /usr/local/bin/uglifycss
+            bin: /usr/bin/uglifycss
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:
