@@ -71,7 +71,3 @@ KunstmaanDashboardBundle:
     prefix:   /{_locale}/
     requirements:
         _locale: %requiredlocales%
-
-# KunstmaanLanguageChooserBundle
-_languagechooser:
-    resource: .
