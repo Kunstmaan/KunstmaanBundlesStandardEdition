@@ -23,6 +23,7 @@ parameters:
     cdnpath:           ''
 
     websitetitle:      MyProject
+    session_prefix:    myproject
 
     searchport:        9200
     searchindexname:   myproject

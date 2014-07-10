@@ -5,6 +5,8 @@ framework:
     esi:                { enabled: true }
     fragments:          { path: /_fragment }
     translator:         { fallback: %locale% }
+    session:
+        name:               %session_prefix%
     templating:
         assets_version:     v1
 
