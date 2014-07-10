@@ -12,7 +12,7 @@ parameters:
     mailer_password:   ~
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            5e0e2b4813a2e668b0d2370c501d24e5-ChangeThisPlease
 
     requiredlocales:   nl|fr|de|en
     defaultlocale:     en
