@@ -15,13 +15,11 @@ twig:
         websitetitle: %websitetitle%
         defaultlocale: %defaultlocale%
         requiredlocales: %requiredlocales%
-        #ga_code: %analytics.google%
         gtm_code: %analytics.googletagmanager%
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
 assetic:
-    #bundles: ~
     node: /usr/bin/node
     filters:
         cssrewrite: ~
@@ -41,13 +39,12 @@ assetic:
         optipng:
             bin: optipng
             apply_to: "\.png$"
-            level:    3
+            level: 3
         jpegtran:
             bin: jpegtran
             apply_to: "\.jpe?g$"
-            optimisation:    true
-            progressive:  true
-
+            optimisation: true
+            progressive: true
 
 doctrine:
     orm:
@@ -79,7 +76,6 @@ doctrine:
                         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
                         alias: GedmoTree # this one is optional and will default to the name set for the mapping
                         is_bundle: false
-
 
 parameters:
     assetic.cache.class: Assetic\Cache\ArrayCache

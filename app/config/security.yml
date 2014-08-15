@@ -34,11 +34,9 @@ security:
                 lifetime: 604800
                 path:     /
                 domain:   ~
-
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
 
     access_control:
         - { path: ^/([^/]*)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
