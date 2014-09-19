@@ -1,38 +1,42 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     kunstmaanbundles
-    database_user:     travis
-    database_password: ""
+    database_driver:            pdo_mysql
+    database_host:              127.0.0.1
+    database_port:              ~
+    database_name:              kunstmaanbundles
+    database_user:              travis
+    database_password:          ~
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_transport:           smtp
+    mailer_host:                127.0.0.1
+    mailer_user:                ~
+    mailer_password:            ~
 
-    locale:            en
-    secret:            5e0e2b4813a2e668b0d2370c501d24e5-ChangeThisPlease
+    locale:                     en
+    secret:                     ThisTokenIsNotSoSecretChangeIt
 
-    requiredlocales:   nl|fr|de|en
-    defaultlocale:     en
-    multilanguage:     true
+    debug_toolbar:              true
+    debug_redirects:            false
+    use_assetic_controller:     true
 
-    sentry.dsn:        https://XXXXXXXX:XXXXXXXX@app.getsentry.com/XXXX
+    requiredlocales:            nl|fr|de|en
+    defaultlocale:              en
+    multilanguage:              true
 
-    cdnpath:           ''
+    sentry.dsn:                 https://XXXXXXXX:XXXXXXXX@app.getsentry.com/XXXX
 
-    websitetitle:      MyProject
-    session_prefix:    myproject
+    cdnpath:                    ~
 
-    searchport:        9200
-    searchindexname:   myproject
-    searchindexprefix: myproject
+    websitetitle:               MyProject
+    session_prefix:             myproject
+
+    searchport:                 9200
+    searchindexname:            myproject
+    searchindexprefix:          myproject
 
     analytics.googletagmanager: GTM-XXXXXX
 
-    aviary_api_key:     Register on http://developers.aviary.com/
+    aviary_api_key:             Register on http://developers.aviary.com/
 
-    google.api.client_id: ''
-    google.api.client_secret: ''
-    google.api.dev_key: ''
+    google.api.client_id:       More info at http://bundles.kunstmaan.be/getting-started/advanced/setting-up-the-google-analytics-dashboard"
+    google.api.client_secret:   ~
+    google.api.dev_key:         ~
