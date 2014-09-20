@@ -14,3 +14,13 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+assetic:
+    use_controller: "%use_assetic_controller%"
+    node: node
+    filters:
+        uglifyjs2:
+            bin: node_modules/uglify-js/bin/uglifyjs
+            compress: true
+        uglifycss:
+            bin: node_modules/uglifycss/uglifycss

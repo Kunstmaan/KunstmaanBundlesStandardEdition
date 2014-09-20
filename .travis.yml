@@ -20,12 +20,18 @@ matrix:
 before_script:
   - composer selfupdate
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libxss1
+  - sudo apt-get install -qq libxss1 imagemagick ghostscript
   - ulimit -n 10000
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then printf "\n" | pecl install apcu-beta; fi;'
+  - sh -c 'printf "\n" | pecl install imagick'
   - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - gem install sass
+  - npm install bower
+  - npm install grunt
+  - npm install grunt-cli
+  - npm install uglify-js
+  - npm install uglifycss
   - composer --prefer-source --no-interaction update
   - mysql -e 'create database kunstmaanbundles;'
   - chmod -R 777 app/cache/ app/logs/
