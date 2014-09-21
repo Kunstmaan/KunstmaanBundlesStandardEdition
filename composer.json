@@ -31,7 +31,16 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
+        "behat/behat": "~2.5.0",
+        "behat/mink": "*",
+        "behat/symfony2-extension": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-browserkit-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-sahi-driver": "*",
+        "phpunit/phpunit": "~3.7",
+        "sensio/generator-bundle": ">=2.3.0",
         "fzaninotto/faker": "~1.4.0"
     },
     "scripts": {
