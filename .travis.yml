@@ -16,6 +16,11 @@ php:
 matrix:
     allow_failures:
         - php: hhvm-nightly
+        
+env:
+  - SYMFONY_VERSION="2.3.*"
+  - SYMFONY_VERSION="2.4.*"
+  - SYMFONY_VERSION="2.5.*"
 
 before_script:
   - composer selfupdate
@@ -32,7 +37,8 @@ before_script:
   - npm install grunt-cli
   - npm install uglify-js
   - npm install uglifycss
-  - composer --prefer-source --no-interaction update
+  - composer --prefer-source --no-interaction install
+  - composer require symfony/symfony:${SYMFONY_VERSION}
   - mysql -e 'create database kunstmaanbundles;'
   - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
