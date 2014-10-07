@@ -16,17 +16,29 @@ php:
 matrix:
     allow_failures:
         - php: hhvm-nightly
+        
+env:
+  - SYMFONY_VERSION="2.3.*"
+  - SYMFONY_VERSION="2.4.*"
+  - SYMFONY_VERSION="2.5.*"
 
 before_script:
   - composer selfupdate
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libxss1
+  - sudo apt-get install -qq libxss1 imagemagick ghostscript
   - ulimit -n 10000
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then printf "\n" | pecl install apcu-beta; fi;'
+  - sh -c 'printf "\n" | pecl install imagick'
   - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - gem install sass
-  - composer --prefer-source --no-interaction update
+  - npm install bower
+  - npm install grunt
+  - npm install grunt-cli
+  - npm install uglify-js
+  - npm install uglifycss
+  - composer --prefer-source --no-interaction install
+  - composer require symfony/symfony:${SYMFONY_VERSION}
   - mysql -e 'create database kunstmaanbundles;'
   - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
