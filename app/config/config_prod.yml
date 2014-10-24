@@ -28,9 +28,38 @@ monolog:
         console:
             type:  console
 
-liip_cache_control:
-    rules:
-        - { path: /admin, controls: { private: true, max_age: 0 } }
-        - { path: /preview, controls: { private: true, max_age: 0 } }
-        - { path: ^/_internal, controls: {private: true, max_age: 0 } }
-        - { path: ^/(.+), controls: { public: true, max_age: 360, s_maxage: 360 }, vary: [Cookie,Accept-Encoding] }
+fos_http_cache:
+    cache_control:
+        rules:
+            # match admin area
+            -
+                match:
+                    path: ^/[^/]+/admin
+                headers:
+                    cache_control:
+                        public: false
+                        max_age: 0
+                        s_maxage: 0
+                    last_modified: "-1 hour"
+
+            # match esi requests
+            -
+                match:
+                    path: ^/_fragment
+                headers:
+                    cache_control:
+                        public: false
+                        max_age: 0
+                        s_maxage: 0
+                    last_modified: "-1 hour"
+
+            # match everything to set defaults
+            -
+                match:
+                    path: ^/
+                headers:
+                    cache_control:
+                        public: true
+                        max_age: 360
+                        s_maxage: 360
+                    vary: [Accept-Encoding, Accept-Language]
