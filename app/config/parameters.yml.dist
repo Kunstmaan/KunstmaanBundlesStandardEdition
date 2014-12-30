@@ -40,3 +40,5 @@ parameters:
     google.api.client_id:       More info at http://bundles.kunstmaan.be/getting-started/advanced/setting-up-the-google-analytics-dashboard"
     google.api.client_secret:   ~
     google.api.dev_key:         ~
+
+    doctrine.server_version:    5.6
