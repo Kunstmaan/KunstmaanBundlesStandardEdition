@@ -1,36 +1,28 @@
 language: php
 
-cache:
-  apt: true
-  bundler: true
-  directories:
-    - vendor
-
 php:
   - 5.3
   - 5.4
   - 5.5
   - 5.6
-  - hhvm-nightly
 
-matrix:
-    allow_failures:
-        - php: hhvm-nightly
-        
 env:
   - SYMFONY_VERSION="2.3.*"
-  - SYMFONY_VERSION="2.4.*"
   - SYMFONY_VERSION="2.5.*"
+  - SYMFONY_VERSION="2.6.*"
 
 before_script:
   - composer selfupdate
   - sudo apt-get update -qq
   - sudo apt-get install -qq libxss1 imagemagick ghostscript
   - ulimit -n 10000
-  - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then printf "\n" | pecl install apcu-beta; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
   - sh -c 'printf "\n" | pecl install imagick'
-  - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - gem install sass
   - npm install bower
   - npm install grunt
