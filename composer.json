@@ -28,7 +28,8 @@
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "doctrine/migrations": "~1.0@dev",
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
-        "friendsofsymfony/user-bundle": "2.0.*@dev"
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "egulias/email-validator": "~1.2"
     },
     "require-dev": {
         "behat/behat": "~2.5.0",
