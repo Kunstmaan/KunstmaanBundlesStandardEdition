@@ -35,7 +35,7 @@ parameters:
 
     analytics.googletagmanager: GTM-XXXXXX
 
-    aviary_api_key:             Register on http://developers.aviary.com/
+    aviary_api_key:             Register on https://creativesdk.adobe.com/myapps.html
 
     google.api.client_id:       More info at http://bundles.kunstmaan.be/getting-started/advanced/setting-up-the-google-analytics-dashboard"
     google.api.client_secret:   ~
