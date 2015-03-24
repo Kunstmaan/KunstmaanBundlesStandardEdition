@@ -19,7 +19,7 @@
         "sensio/framework-extra-bundle": ">=2.3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "kunstmaan/bundles-cms": "~3.0.0",
+        "kunstmaan/bundles-cms": ">=3.0.2",
 
         "raven/raven": "~0.8",
         "friendsofsymfony/http-cache-bundle": "~1.0",
