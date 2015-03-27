@@ -7,8 +7,8 @@ $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 
 if(extension_loaded('apc') && ini_get('apc.enabled')){
     // Use APC for autoloading to improve performance.
-    // Change 'sf2' to a unique prefix in order to prevent cache key conflicts
-    // with other applications also using APC.
+    // Change 'sf2' to a unique prefix in order to prevent cache key conflicts with other applications also using APC.
+    // The Kunstmaan build system does this automatically.
     $apcLoader = new ApcClassLoader('sf2', $loader);
     $loader->unregister();
     $apcLoader->register(true);
@@ -16,17 +16,24 @@ if(extension_loaded('apc') && ini_get('apc.enabled')){
 
 require_once __DIR__.'/../app/AppKernel.php';
 
-$kernel = new AppKernel('prod', false);
-
-$kernel->loadClassCache();
-if (!isset($_SERVER['HTTP_SURROGATE_CAPABILITY']) || false === strpos($_SERVER['HTTP_SURROGATE_CAPABILITY'], 'ESI/1.0')) {
-    require_once __DIR__.'/../app/AppCache.php';
-    $kernel = new AppCache($kernel);
+if (getenv('APP_ENV') === 'dev') {
+    Debug::enable();
+    $kernel = new AppKernel('dev', true);
+} else {
+    $kernel = new AppKernel('prod', false);
 }
 
-// When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
-//Request::enableHttpMethodParameterOverride();
-//Request::setTrustedProxies(array('127.0.0.1'));
+$kernel->loadClassCache();
+
+if (getenv('APP_ENV') !== 'dev') {
+    if (!isset($_SERVER['HTTP_SURROGATE_CAPABILITY']) || false === strpos($_SERVER['HTTP_SURROGATE_CAPABILITY'], 'ESI/1.0')) {
+        require_once __DIR__.'/../app/AppCache.php';
+        $kernel = new AppCache($kernel);
+    }
+}
+
+Request::enableHttpMethodParameterOverride();
+Request::setTrustedProxies(array('127.0.0.1'));
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
