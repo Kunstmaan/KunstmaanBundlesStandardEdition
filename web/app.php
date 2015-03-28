@@ -17,6 +17,8 @@ if(extension_loaded('apc') && ini_get('apc.enabled')){
 require_once __DIR__.'/../app/AppKernel.php';
 
 if (getenv('APP_ENV') === 'dev') {
+    use Symfony\Component\Debug\Debug;
+    umask(0000);
     Debug::enable();
     $kernel = new AppKernel('dev', true);
 } else {
