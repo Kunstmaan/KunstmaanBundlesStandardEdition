@@ -2,6 +2,7 @@
 
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Debug\Debug;
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 
@@ -17,7 +18,6 @@ if(extension_loaded('apc') && ini_get('apc.enabled')){
 require_once __DIR__.'/../app/AppKernel.php';
 
 if (getenv('APP_ENV') === 'dev') {
-    use Symfony\Component\Debug\Debug;
     umask(0000);
     Debug::enable();
     $kernel = new AppKernel('dev', true);
