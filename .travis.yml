@@ -22,7 +22,6 @@ matrix:
 
 before_script:
   - composer selfupdate
-  - sudo apt-get update -qq
   - sudo apt-get install -qq libxss1 imagemagick ghostscript
   - ulimit -n 10000
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
