@@ -1,5 +1,9 @@
 language: php
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 php:
   - 5.3
   - 5.4
@@ -7,9 +11,14 @@ php:
   - 5.6
 
 env:
-  - SYMFONY_VERSION="2.3.*"
-  - SYMFONY_VERSION="2.5.*"
   - SYMFONY_VERSION="2.6.*"
+
+matrix:
+  include:
+    - php: 5.6
+      env: SYMFONY_VERSION="2.5.*"
+    - php: 5.6
+      env: SYMFONY_VERSION="2.3.*"
 
 before_script:
   - composer selfupdate
@@ -29,21 +38,20 @@ before_script:
   - npm install grunt-cli
   - npm install uglify-js
   - npm install uglifycss
-  - composer --prefer-source --no-interaction install
   - composer require symfony/symfony:${SYMFONY_VERSION}
   - mysql -e 'create database kunstmaanbundles;'
   - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-  - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
+#  - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
   - npm install
   - bower install
-  - grunt build
+  - grunt build || gulp build
   - app/console --force --no-interaction doctrine:schema:drop --env=test
   - app/console --no-interaction doctrine:schema:create --env=test
   - app/console --no-interaction doctrine:fixtures:load --env=test
-  - app/console --no-interaction assets:install web --env=test
+  - app/console --no-interaction assets:install --env=test
   - app/console --no-interaction assetic:dump --env=test
   - app/console --no-interaction cache:clear --env=test
   - app/console --no-interaction cache:warmup --env=test
