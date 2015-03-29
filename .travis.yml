@@ -9,13 +9,26 @@ php:
   - 5.4
   - 5.5
   - 5.6
+  - 7.0
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+
+mysql:
+  database: kunstmaanbundles
+  username: travis
+  encoding: utf8
 
 env:
   - SYMFONY_VERSION="2.6.*"
 
-before_script:
+before_install:
   - composer selfupdate
-  - sudo apt-get install -qq libxss1 imagemagick ghostscript
+
+install:
+  - sudo apt-get install -y --force-yes -qq libxss1 imagemagick ghostscript
   - ulimit -n 10000
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
@@ -30,13 +43,15 @@ before_script:
   - npm install grunt-cli
   - npm install uglify-js
   - npm install uglifycss
+  - chmod -R 777 app/cache/ app/logs/
+
+
+before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION}
   - mysql -e 'create database kunstmaanbundles;'
-  - chmod -R 777 app/cache/ app/logs/
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-#  - app/console kuma:generate:article --namespace="MyProject\\WebsiteBundle" --entity=News --prefix="myproject_" --dummydata
   - npm install
   - bower install
   - grunt build || gulp build
