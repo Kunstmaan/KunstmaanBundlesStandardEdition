@@ -51,3 +51,13 @@ KunstmaanUserManagementBundle:
 KunstmaanDashboardBundle:
     resource: "@KunstmaanDashboardBundle/Resources/config/routing.yml"
     prefix:   /
+
+# KunstmaanSeoBundle
+KunstmaanSeoBundle:
+    resource: "@KunstmaanSeoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# Robots.txt
+KunstmaanSeoBundle_robots:
+    resource: "@KunstmaanSeoBundle/Controller/RobotsController.php"
+    type:     annotation
