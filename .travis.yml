@@ -52,6 +52,7 @@ before_script:
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
   - npm install
+  - bundle install
   - bower install
   - grunt build || gulp build
   - app/console --force --no-interaction doctrine:schema:drop --env=test
