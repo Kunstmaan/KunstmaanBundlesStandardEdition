@@ -7,7 +7,7 @@
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4.0",
         "symfony/symfony": "~2.3",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
@@ -19,7 +19,7 @@
         "sensio/framework-extra-bundle": ">=2.3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "kunstmaan/bundles-cms": ">=3.0.2",
+        "kunstmaan/bundles-cms": "~3.0",
 
         "raven/raven": "~0.8",
         "friendsofsymfony/http-cache-bundle": "~1.0",
@@ -75,7 +75,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "3.0-dev"
+            "dev-master": "3.1-dev"
         }
     }
 }

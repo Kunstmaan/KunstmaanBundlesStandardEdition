@@ -18,10 +18,6 @@ use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler;
 
 class RootPackageInstallSubscriber implements EventSubscriberInterface
 {
-    public static function installAcmeDemoBundle(CommandEvent $event)
-    {
-        ScriptHandler::installAcmeDemoBundle($event);
-    }
 
     public static function setupNewDirectoryStructure(CommandEvent $event)
     {
@@ -32,8 +28,7 @@ class RootPackageInstallSubscriber implements EventSubscriberInterface
     {
         return array(
             ScriptEvents::POST_INSTALL_CMD => array(
-                array('setupNewDirectoryStructure', 512),
-                array('installAcmeDemoBundle', 0)
+                array('setupNewDirectoryStructure', 512)
             ),
         );
     }
