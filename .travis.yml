@@ -65,7 +65,7 @@ before_script:
   - chmod -R 777 app/cache/ app/logs/
   - app/console server:run &
   - export DISPLAY=:99.0
-  - Xvfb :99.0 +extension RANDR > /dev/null &
+  - Xvfb :99.0 -screen 0 1024x768x24 -extension RANDR &
   - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.34.0.jar
   - java -jar selenium-server-standalone-2.34.0.jar > /dev/null &
   - sleep 5
