@@ -52,6 +52,7 @@ before_script:
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
+  - bundle install
   - npm install
   - bower install
   - grunt build || gulp build
@@ -64,10 +65,11 @@ before_script:
   - app/console --no-interaction cache:warmup --env=test
   - chmod -R 777 app/cache/ app/logs/
   - app/console server:run &
-  - sh -e /etc/init.d/xvfb start
   - export DISPLAY=:99.0
-  - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.34.0.jar
-  - java -jar selenium-server-standalone-2.34.0.jar > /dev/null &
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
+  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
