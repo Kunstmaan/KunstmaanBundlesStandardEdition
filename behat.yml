@@ -16,7 +16,7 @@ default:
             env: test
             debug: true
         Behat\MinkExtension\Extension:
-            base_url: 'http://localhost:8000/app_test.php/'
+            base_url: 'http://localhost:8000/'
             #javascript_session: sahi
             browser_name: firefox
             sahi:
