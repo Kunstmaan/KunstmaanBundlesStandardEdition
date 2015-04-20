@@ -25,7 +25,7 @@ monolog:
             type:  stream
             path:  "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
-	    formatter: kunstmaan_logging_formatter
+            formatter: kunstmaan_logging_formatter
         console:
             type:  console
 
