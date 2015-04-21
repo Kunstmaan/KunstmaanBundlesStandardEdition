@@ -37,7 +37,7 @@ parameters:
 
     aviary_api_key:             Register on https://creativesdk.adobe.com/myapps.html
 
-    google.api.client_id:       More info at http://bundles.kunstmaan.be/getting-started/advanced/setting-up-the-google-analytics-dashboard"
+    google.api.client_id:       More info at http://bundles.kunstmaan.be/documentation/cookbook/google-analytics-dashboard
     google.api.client_secret:   ~
     google.api.dev_key:         ~
 
