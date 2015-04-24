@@ -21,7 +21,8 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.6.*"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev"
 
 before_install:
   - composer selfupdate
@@ -47,6 +48,7 @@ install:
 
 before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION}
+  - composer require kunstmaan/bundles-cms:${BUNDLES_VERSION}
   - mysql -e 'create database kunstmaanbundles;'
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
