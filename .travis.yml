@@ -65,11 +65,11 @@ install:
 before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION}
   - composer require kunstmaan/bundles-cms:${BUNDLES_VERSION}
-  - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i "s/dbuser/postgres/g" app/config/parameters.yml; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i "s/pdo_mysql/pdo_pgsql/g" app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i 's/dbuser/postgres/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then sed -i 's/pdo_mysql/pdo_pgsql/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS kunstmaanbundles;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database kunstmaanbundles;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i "s/dbuser/travis/g" app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
