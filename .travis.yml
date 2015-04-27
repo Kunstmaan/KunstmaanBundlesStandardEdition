@@ -72,7 +72,7 @@ before_script:
   - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
-  - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%/data.db3\"/g' app/config/config_base.yml; fi"
+  - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%\/data.db3\"/g' app/config/config_base.yml; fi"
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
