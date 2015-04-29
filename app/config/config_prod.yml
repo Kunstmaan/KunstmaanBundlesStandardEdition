@@ -17,6 +17,8 @@ monolog:
             type:         fingers_crossed
             action_level: error
             handler:      nested
+            excluded_404s:
+                - ^/
         sentry:
             type:  raven
             dsn:   %sentry.dsn%
