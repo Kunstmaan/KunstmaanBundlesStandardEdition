@@ -77,6 +77,17 @@ doctrine:
                         alias: GedmoTree # this one is optional and will default to the name set for the mapping
                         is_bundle: false
 
+                second_level_cache:
+                    region_cache_driver:  apc
+                    log_enabled:          true
+                    enabled:              true
+
+                    regions:
+                        kunstmaan_slc_pagepart_region:
+                              lifetime: 600
+                              cache_driver:
+                                type: apc
+
 parameters:
     assetic.cache.class: Assetic\Cache\ArrayCache
 
