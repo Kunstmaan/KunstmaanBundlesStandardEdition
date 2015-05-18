@@ -31,13 +31,13 @@ monolog:
 
 assetic:
     use_controller: "%use_assetic_controller%"
-    node: /usr/local/bin/node
+    node: "%assetic.node.bin%"
     filters:
         uglifyjs2:
-            bin: /usr/local/bin/uglifyjs
+            bin: "%assetic.uglifyjs.bin%"
             compress: true
         uglifycss:
-            bin: /usr/local/bin/uglifycss
+            bin: "%assetic.uglifycss.bin%"
 
 #swiftmailer:
 #    delivery_address: me@example.com

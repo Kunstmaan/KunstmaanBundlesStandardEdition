@@ -20,15 +20,15 @@ twig:
         #titlebgcolor: "#2997CE"
 
 assetic:
-    node: /usr/bin/node
+    node: "%assetic.node.bin%"
     filters:
         cssrewrite: ~
         scss: ~
         uglifyjs2:
-            bin: /usr/bin/uglifyjs
+            bin: "%assetic.uglifyjs.bin%"
             compress: true
         uglifycss:
-            bin: /usr/bin/uglifycss
+            bin: "%assetic.uglifycss.bin%"
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:

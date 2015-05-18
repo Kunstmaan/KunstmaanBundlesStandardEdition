@@ -42,3 +42,7 @@ parameters:
     google.api.dev_key:         ~
 
     doctrine.server_version:    5.6
+
+    assetic.node.bin: /usr/local/bin/node
+    assetic.uglifyjs.bin: /usr/local/bin/uglifyjs
+    assetic.uglifycss.bin: /usr/local/bin/uglifycss

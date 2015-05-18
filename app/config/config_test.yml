@@ -17,10 +17,10 @@ swiftmailer:
 
 assetic:
     use_controller: "%use_assetic_controller%"
-    node: node
+    node: "%assetic.node.bin%"
     filters:
         uglifyjs2:
-            bin: node_modules/uglify-js/bin/uglifyjs
+            bin: "%assetic.uglifyjs.bin%"
             compress: true
         uglifycss:
-            bin: node_modules/uglifycss/uglifycss
+            bin: "%assetic.uglifycss.bin%"
