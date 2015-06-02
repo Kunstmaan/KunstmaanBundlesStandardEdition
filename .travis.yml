@@ -14,6 +14,13 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 7.0
+    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
+    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+
+services:
+  - elasticsearch
 
 mysql:
   database: kunstmaanbundles
@@ -21,13 +28,19 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.6.*"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="mysql"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
+  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
 
 before_install:
   - composer selfupdate
 
 install:
   - sudo apt-get install -y --force-yes -qq libxss1 imagemagick ghostscript
+  - npm install -g npm@2
   - ulimit -n 10000
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
@@ -47,7 +60,15 @@ install:
 
 before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION}
-  - mysql -e 'create database kunstmaanbundles;'
+  - composer require kunstmaan/bundles-cms:${BUNDLES_VERSION}
+  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/dbuser/postgres/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/pdo_mysql/pdo_pgsql/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS kunstmaanbundles;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'create database kunstmaanbundles;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
+  - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%\/data.db3\"/g' app/config/config_base.yml; fi"
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
