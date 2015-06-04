@@ -46,6 +46,7 @@ class AppKernel extends Kernel
             new Kunstmaan\RedirectBundle\KunstmaanRedirectBundle(),
             new Kunstmaan\UserManagementBundle\KunstmaanUserManagementBundle(),
             new Kunstmaan\DashboardBundle\KunstmaanDashboardBundle(),
+            //new Kunstmaan\LeadGenerationBundle\KunstmaanLeadGenerationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev'))) {
