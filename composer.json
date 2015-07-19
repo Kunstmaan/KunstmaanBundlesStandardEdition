@@ -4,7 +4,7 @@
     "type": "project",
     "description": "The \"Kunstmaan Bundles CMS Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/", "SymfonyStandard\\": "app/" }
+        "psr-4": { "": "src/", "SymfonyStandard\\": "app/SymfonyStandard/" }
     },
     "require": {
         "php": ">=5.4.0",
