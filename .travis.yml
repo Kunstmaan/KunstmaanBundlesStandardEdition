@@ -1,5 +1,14 @@
 language: php
 
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - libxss1 
+    - imagemagick 
+    - ghostscript
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -34,14 +43,11 @@ env:
   - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
   - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
   - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
-
+  
 before_install:
   - composer selfupdate
 
 install:
-  - sudo apt-get install -y --force-yes -qq libxss1 imagemagick ghostscript
-  - npm install -g npm@2
-  - ulimit -n 10000
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then printf "\n" | pecl install apcu-beta; fi;'
@@ -75,7 +81,7 @@ before_script:
   - bundle install
   - npm install
   - bower install
-  - grunt build || gulp build
+  - gulp build || grunt build
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
   - app/console --no-interaction doctrine:fixtures:load --env=dev
