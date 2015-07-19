@@ -76,9 +76,9 @@ before_script:
   - npm install
   - bower install
   - grunt build || gulp build
-  - app/console --force --no-interaction doctrine:schema:drop --env=test
-  - app/console --no-interaction doctrine:schema:create --env=test
-  - app/console --no-interaction doctrine:fixtures:load --env=test
+  - app/console --force --no-interaction doctrine:schema:drop --env=dev
+  - app/console --no-interaction doctrine:schema:create --env=dev
+  - app/console --no-interaction doctrine:fixtures:load --env=dev
   - app/console --no-interaction assets:install --env=test
   - app/console --no-interaction assetic:dump --env=test
   - app/console --no-interaction cache:clear --env=test
