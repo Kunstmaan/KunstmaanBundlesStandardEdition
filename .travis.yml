@@ -23,10 +23,10 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 7.0
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
 
 services:
   - elasticsearch
@@ -37,12 +37,12 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="mysql"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="mysql"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
   
 before_install:
   - composer selfupdate
@@ -65,16 +65,30 @@ install:
 
 
 before_script:
-  - composer require symfony/symfony:${SYMFONY_VERSION}
-  - composer require kunstmaan/bundles-cms:${BUNDLES_VERSION}
-  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/dbuser/postgres/g' app/config/parameters.yml; fi"
-  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/pdo_mysql/pdo_pgsql/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS kunstmaanbundles;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'create database kunstmaanbundles;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/dbuser/postgres/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then sed -i 's/pdo_mysql/pdo_pgsql/g' app/config/parameters.yml; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%\/data.db3\"/g' app/config/config_base.yml; fi"
+  - composer require symfony/symfony:${SYMFONY_VERSION} kunstmaan/bundles-cms:${BUNDLES_VERSION} --no-update
+  - composer install --no-scripts
+  - composer dump-autoload --optimize
+  - php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php
+  - app/console --force --no-interaction doctrine:schema:drop --env=dev
+  - app/console --no-interaction doctrine:schema:create --env=dev
+  - app/console --no-interaction doctrine:fixtures:load --env=dev
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
+  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
+  - sleep 5
+
+script:
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
@@ -90,17 +104,9 @@ before_script:
   - app/console --no-interaction cache:clear --env=test
   - app/console --no-interaction cache:warmup --env=test
   - chmod -R 777 app/cache/ app/logs/
-  - app/console server:run &
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
-  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
-  - sleep 5
-
-script:
-    - phpunit -c app
-    - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
+#  - app/console server:run
+#  - phpunit -c app
+#  - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
 
 notifications:
   email:
