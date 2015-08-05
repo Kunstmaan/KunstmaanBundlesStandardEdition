@@ -23,10 +23,10 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 7.0
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
-    - env: SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
+    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
 
 services:
   - elasticsearch
@@ -37,12 +37,12 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="mysql"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0" DB="postgres"
-  - SYMFONY_VERSION="2.6.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="mysql"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
   
 before_install:
   - composer selfupdate
