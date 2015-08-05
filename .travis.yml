@@ -75,6 +75,14 @@ before_script:
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%\/data.db3\"/g' app/config/config_base.yml; fi"
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
+  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
+  - sleep 5
+
+script:
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
@@ -90,17 +98,9 @@ before_script:
   - app/console --no-interaction cache:clear --env=test
   - app/console --no-interaction cache:warmup --env=test
   - chmod -R 777 app/cache/ app/logs/
-  - app/console server:run &
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
-  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
-  - sleep 5
-
-script:
-    - phpunit -c app
-    - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
+  - app/console server:run
+#  - phpunit -c app
+#  - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
 
 notifications:
   email:
