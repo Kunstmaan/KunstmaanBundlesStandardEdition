@@ -2,6 +2,7 @@ imports:
     - { resource: config_base.yml }
 
 framework:
+    ide:                "phpstorm://open?file=%%f&line=%%l"
     esi:                { enabled: true }
     fragments:          { path: /_fragment }
     translator:         { fallback: %locale% }
