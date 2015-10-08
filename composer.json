@@ -15,7 +15,8 @@
         "jms/security-extra-bundle": "~1.5.1",
         "doctrine/doctrine-migrations-bundle": "1.0.*",
         "doctrine/migrations": "~1.0",
-        "friendsofsymfony/user-bundle": "2.0.*@dev"
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "kriswallsmith/spork": "~0.2.0"
     },
     "require-dev": {
         "behat/behat": "~2.5.0",
