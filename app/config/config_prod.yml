@@ -66,4 +66,4 @@ fos_http_cache:
                         public: true
                         max_age: 360
                         s_maxage: 360
-                    vary: [Accept-Encoding, Accept-Language]
+                    vary: [Cookie, Accept-Encoding, Accept-Language]
