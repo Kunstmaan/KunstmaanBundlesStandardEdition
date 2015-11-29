@@ -140,6 +140,13 @@ services:
     kunstmaan_newrelic_naming_strategy:
         class: Kunstmaan\UtilitiesBundle\Helper\UrlTransactionNamingStrategy
 
+    gedmo.listener.tree:
+        class: Gedmo\Tree\TreeListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
 white_october_pagerfanta:
     default_view: twitter_bootstrap
 
