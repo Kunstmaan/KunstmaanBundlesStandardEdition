@@ -5,8 +5,8 @@ sudo: false
 addons:
   apt:
     packages:
-    - libxss1 
-    - imagemagick 
+    - libxss1
+    - imagemagick
     - ghostscript
 
 cache:
@@ -43,14 +43,15 @@ env:
   - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
   - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
   - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
-  
+
 before_install:
   - composer selfupdate
 
 install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ $(php -r "echo PHP_MINOR_VERSION;") -ge 5 ]; then printf "\n" | pecl install apcu-beta; fi;'
+  - sh -c 'if [[ $TRAVIS_PHP_VERSION =~ 5.[56] ]] ; then echo yes | pecl install apcu-4.0.10; fi;'
+  - sh -c 'if [[ $TRAVIS_PHP_VERSION = 7.* ]] ; then pecl config-set preferred_state beta; echo yes | pecl install apcu; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
