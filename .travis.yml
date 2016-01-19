@@ -74,9 +74,8 @@ before_script:
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i "s/pdo_mysql/pdo_sqlite/g" app/config/parameters.yml; fi"
   - sh -c "if [ '$DB' = 'sqlite' ]; then sed -i 's/# path:[ ]*\"%database_path%\"/path\:\ \"%kernel.root_dir%\/data.db3\"/g' app/config/config_base.yml; fi"
   - composer require symfony/symfony:${SYMFONY_VERSION} kunstmaan/bundles-cms:${BUNDLES_VERSION} --no-update
-  - composer install --no-scripts
+  - composer install
   - composer dump-autoload --optimize
-  - php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
   - app/console --no-interaction doctrine:fixtures:load --env=dev
