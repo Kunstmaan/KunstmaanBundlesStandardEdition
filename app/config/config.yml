@@ -20,7 +20,10 @@ twig:
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
+# Assetic Configuration
 assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
     node: /usr/bin/node
     filters:
         cssrewrite: ~

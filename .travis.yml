@@ -22,11 +22,10 @@ php:
 matrix:
   fast_finish: true
   allow_failures:
-    - php: 7.0
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="postgres"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
 
 services:
   - elasticsearch
@@ -37,12 +36,12 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="mysql"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="mysql"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="postgres"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
 
 before_install:
   - composer selfupdate
@@ -57,11 +56,10 @@ install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
   - sh -c 'printf "\n" | pecl install imagick'
   - gem install sass
-  - npm install bower
-  - npm install grunt
-  - npm install grunt-cli
-  - npm install uglify-js
-  - npm install uglifycss
+  - npm install -g bower
+  - npm install -g gulp
+  - npm install -g uglify-js
+  - npm install -g uglifycss
   - chmod -R 777 app/cache/ app/logs/
 
 
