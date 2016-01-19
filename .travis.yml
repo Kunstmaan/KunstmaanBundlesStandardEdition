@@ -36,12 +36,12 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="mysql"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0" DB="postgres"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="sqlite"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="mysql"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="mysql"
+  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="postgres"
 
 before_install:
   - composer selfupdate
