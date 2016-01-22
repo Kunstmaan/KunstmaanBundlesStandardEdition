@@ -91,11 +91,12 @@ stof_doctrine_extensions:
             sluggable: true
 
 liip_imagine:
-    cache_prefix: uploads/cache
+    resolvers:
+        default:
+            web_path:
+                cache_prefix: uploads/cache
     driver: imagick
-    data_loader: filesystem
-    data_root: %kernel.root_dir%/../web
-    formats : ['jpg', 'jpeg','png', 'gif', 'bmp']
+    data_loader: default
     filter_sets:
         optim:
             quality: 85
