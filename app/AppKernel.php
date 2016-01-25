@@ -17,8 +17,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
             new Kunstmaan\UtilitiesBundle\KunstmaanUtilitiesBundle(),
             new Kunstmaan\NodeBundle\KunstmaanNodeBundle(),
             new Kunstmaan\SeoBundle\KunstmaanSeoBundle(),
