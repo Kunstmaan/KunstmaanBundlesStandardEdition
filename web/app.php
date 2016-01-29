@@ -4,7 +4,11 @@ use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 
-$loader = require_once __DIR__.'/../app/bootstrap.php.cache';
+/**
+ * @var Composer\Autoload\ClassLoader
+ */
+$loader = require __DIR__.'/../app/autoload.php';
+include_once __DIR__.'/../app/bootstrap.php.cache';
 
 if (extension_loaded('apc') && ini_get('apc.enabled')) {
     // Enable APC for autoloading to improve performance.
@@ -15,8 +19,6 @@ if (extension_loaded('apc') && ini_get('apc.enabled')) {
     $loader->unregister();
     $apcLoader->register(true);
 }
-
-require_once __DIR__.'/../app/AppKernel.php';
 
 if (getenv('APP_ENV') === 'dev') {
     umask(0000);
@@ -30,7 +32,6 @@ $kernel->loadClassCache();
 
 if (getenv('APP_ENV') !== 'dev') {
     if (!isset($_SERVER['HTTP_SURROGATE_CAPABILITY']) || false === strpos($_SERVER['HTTP_SURROGATE_CAPABILITY'], 'ESI/1.0')) {
-        require_once __DIR__.'/../app/AppCache.php';
         $kernel = new AppCache($kernel);
     }
 }
