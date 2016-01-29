@@ -149,6 +149,9 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
+    
+    fos_user.doctrine_registry:
+        alias: doctrine
 
 white_october_pagerfanta:
     default_view: twitter_bootstrap
