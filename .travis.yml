@@ -76,7 +76,7 @@ before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION} kunstmaan/bundles-cms:${BUNDLES_VERSION} --no-update
   - composer install --no-scripts
   - composer dump-autoload --optimize
-  - php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php
+  - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
   - app/console --no-interaction doctrine:fixtures:load --env=dev
