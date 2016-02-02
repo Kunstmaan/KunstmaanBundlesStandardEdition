@@ -14,7 +14,6 @@ cache:
     - $HOME/.composer/cache
 
 php:
-  - 5.4
   - 5.5
   - 5.6
   - 7.0
@@ -23,10 +22,8 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 7.0
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
-    - env: SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="sqlite"
+    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="postgres"
 
 services:
   - elasticsearch
@@ -37,12 +34,9 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="sqlite"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="sqlite"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="mysql"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="mysql"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0" DB="postgres"
-  - SYMFONY_VERSION="2.7.*" BUNDLES_VERSION="~3.0@dev" DB="postgres"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="sqlite"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="mysql"
+  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="postgres"
 
 before_install:
   - composer selfupdate
@@ -78,7 +72,7 @@ before_script:
   - composer require symfony/symfony:${SYMFONY_VERSION} kunstmaan/bundles-cms:${BUNDLES_VERSION} --no-update
   - composer install --no-scripts
   - composer dump-autoload --optimize
-  - php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php
+  - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
   - app/console --no-interaction doctrine:fixtures:load --env=dev
