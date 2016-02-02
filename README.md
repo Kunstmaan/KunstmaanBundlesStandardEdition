@@ -7,7 +7,7 @@ Welcome to the Kunstmaan Bundles Standard Edition - a fully-functional CMS (cont
 
 Enjoy!
 
-[![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](http://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition)
+[![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](http://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition) 
 [![Total Downloads](https://poser.pugx.org/kunstmaan/bundles-standard-edition/downloads.png)](https://packagist.org/packages/kunstmaan/bundles-standard-edition)
 [![Latest Stable Version](https://poser.pugx.org/kunstmaan/bundles-standard-edition/v/stable.png)](https://packagist.org/packages/kunstmaan/bundles-standard-edition)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesCMS/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesCMS/?branch=master)
