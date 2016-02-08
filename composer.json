@@ -29,7 +29,8 @@
         "behat/mink-sahi-driver": "*",
         "phpunit/phpunit": "~4.4",
         "fzaninotto/faker": "~1.5",
-        "nelmio/alice": "~1.6"
+        "nelmio/alice": "~1.6",
+        "fabpot/goutte": "~1.0"
     },
     "scripts": {
         "post-root-package-install": [
