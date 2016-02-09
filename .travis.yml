@@ -75,7 +75,6 @@ before_script:
   - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
-  - app/console --no-interaction doctrine:fixtures:load --env=dev
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
@@ -86,7 +85,6 @@ before_script:
 script:
   - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
-  - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
   - bundle install
   - npm install
   - bower install
@@ -94,14 +92,16 @@ script:
   - app/console --force --no-interaction doctrine:schema:drop --env=dev
   - app/console --no-interaction doctrine:schema:create --env=dev
   - app/console --no-interaction doctrine:fixtures:load --env=dev
+  - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
   - app/console --no-interaction assets:install --env=test
   - app/console --no-interaction assetic:dump --env=test
   - app/console --no-interaction cache:clear --env=test
   - app/console --no-interaction cache:warmup --env=test
   - chmod -R 777 app/cache/ app/logs/
-#  - app/console server:run
-#  - phpunit -c app
-#  - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
+  - app/console server:start
+  - phpunit -c app
+  - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
+  - app/console server:stop
 
 notifications:
   email:
