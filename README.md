@@ -7,9 +7,8 @@ Welcome to the Kunstmaan Bundles Standard Edition - a fully-functional CMS (cont
 
 Enjoy!
 
-[![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](http://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition) 
+[![Build Status](https://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition.png?branch=master)](http://travis-ci.org/Kunstmaan/KunstmaanBundlesStandardEdition)
 [![Total Downloads](https://poser.pugx.org/kunstmaan/bundles-standard-edition/downloads.png)](https://packagist.org/packages/kunstmaan/bundles-standard-edition)
 [![Latest Stable Version](https://poser.pugx.org/kunstmaan/bundles-standard-edition/v/stable.png)](https://packagist.org/packages/kunstmaan/bundles-standard-edition)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesCMS/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesCMS/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesStandardEdition/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Kunstmaan/KunstmaanBundlesStandardEdition/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/59665081-2e26-4a55-a650-35facf49067f/mini.png)](https://insight.sensiolabs.com/projects/59665081-2e26-4a55-a650-35facf49067f)
