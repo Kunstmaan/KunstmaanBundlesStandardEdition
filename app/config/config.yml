@@ -116,6 +116,58 @@ liip_imagine:
             filters:
                 strip: ~
 
+        # ImagePagePart srcset JPG filters
+        image_huge_jpg:
+            quality: 95
+            format: jpg
+            filters:
+                strip: ~
+                thumbnail: { size: [2400,null], mode: outbound, allow_upscale: false }
+        image_big_jpg:
+            quality: 95
+            format: jpg
+            filters:
+                strip: ~
+                thumbnail: { size: [1200,null], mode: outbound, allow_upscale: false }
+        image_medium_jpg:
+            quality: 95
+            format: jpg
+            filters:
+                strip: ~
+                thumbnail: { size: [600,null], mode: outbound, allow_upscale: false }
+        image_small_jpg:
+            quality: 95
+            format: jpg
+            filters:
+                strip: ~
+                thumbnail: { size: [400,null], mode: outbound, allow_upscale: false }
+
+        # ImagePagePart srcset PNG filters
+        image_huge_png:
+            quality: 95
+            format: png
+            filters:
+                strip: ~
+                thumbnail: { size: [2400,null], mode: outbound, allow_upscale: false }
+        image_big_png:
+            quality: 95
+            format: png
+            filters:
+                strip: ~
+                thumbnail: { size: [1200,null], mode: outbound, allow_upscale: false }
+        image_medium_png:
+            quality: 95
+            format: png
+            filters:
+                strip: ~
+                thumbnail: { size: [600,null], mode: outbound, allow_upscale: false }
+        image_small_png:
+            quality: 95
+            format: png
+            filters:
+                strip: ~
+                thumbnail: { size: [400,null], mode: outbound, allow_upscale: false }
+                
 services:
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
