@@ -10,8 +10,8 @@ framework:
         name:               %session_prefix%
         # set true if no scripting languages need to access the cookie
         cookie_httponly:    false
-    templating:
-        assets_version:     v1
+    assets:
+        version:     v1
 
 twig:
     globals:
@@ -38,14 +38,14 @@ assetic:
             bin: jpegoptim
             strip_all: true
             max: 85
-            apply_to: "\.jpe?g$"
+            apply_to: "\\.jpe?g$"
         optipng:
             bin: optipng
-            apply_to: "\.png$"
+            apply_to: "\\.png$"
             level: 3
         jpegtran:
             bin: jpegtran
-            apply_to: "\.jpe?g$"
+            apply_to: "\\.jpe?g$"
             optimisation: true
             progressive: true
 
@@ -167,7 +167,7 @@ liip_imagine:
             filters:
                 strip: ~
                 thumbnail: { size: [400,null], mode: outbound, allow_upscale: false }
-                
+
 services:
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
@@ -200,8 +200,8 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
-    
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
     fos_user.doctrine_registry:
         alias: doctrine
 

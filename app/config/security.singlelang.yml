@@ -30,7 +30,7 @@ security:
               target: KunstmaanAdminBundle_homepage
             anonymous:    true
             remember_me:
-                key:      %secret%
+                secret:   %secret%
                 lifetime: 604800
                 path:     /
                 domain:   ~
