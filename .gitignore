@@ -7,6 +7,7 @@
 !var/logs/.gitkeep
 /vendor/
 /bin/*
+!bin/console
 !bin/fullreload
 !bin/travis_*
 /composer.phar
