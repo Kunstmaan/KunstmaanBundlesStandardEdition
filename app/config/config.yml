@@ -23,15 +23,15 @@ twig:
         #titlebgcolor: "#2997CE"
 
 assetic:
-    node: /usr/bin/node
+    node: "%node_bin_path%"
     filters:
         cssrewrite: ~
         scss: ~
         uglifyjs2:
-            bin: /usr/bin/uglifyjs
+            bin: "%uglifyjs_bin_path%"
             compress: true
         uglifycss:
-            bin: /usr/bin/uglifycss
+            bin: "%uglifycss_bin_path%"
         yui_js:
             jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
         jpegoptim:
@@ -213,7 +213,7 @@ kunstmaan_translator:
     managed_locales: ['nl', 'en', 'de', 'fr']
 
 kunstmaan_admin:
-    admin_password: -adminpwd-
+    admin_password: bAkMX0wC
     dashboard_route: 'kunstmaan_dashboard'
 
 ekino_new_relic:

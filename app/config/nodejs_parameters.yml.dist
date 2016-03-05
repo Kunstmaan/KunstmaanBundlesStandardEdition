@@ -1,0 +1,4 @@
+parameters:
+    node_bin_path:      /usr/local/bin/node
+    uglifyjs_bin_path:  /usr/local/bin/uglifyjs
+    uglifycss_bin_path: /usr/local/bin/uglifycss
