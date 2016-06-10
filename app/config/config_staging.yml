@@ -37,7 +37,7 @@ fos_http_cache:
             # match admin area
             -
                 match:
-                    path: ^/[^/]+/admin
+                    path: ^\/([^/]+\/)?admin
                 headers:
                     cache_control:
                         public: false
