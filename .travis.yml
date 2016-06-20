@@ -21,8 +21,8 @@ php:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="sqlite"
-    - env: SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="postgres"
+    - env: SYMFONY_VERSION="3.0.*" BUNDLES_VERSION="dev-master" DB="sqlite"
+    - env: SYMFONY_VERSION="3.0.*" BUNDLES_VERSION="dev-master" DB="postgres"
 
 services:
   - elasticsearch
@@ -33,9 +33,9 @@ mysql:
   encoding: utf8
 
 env:
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="mysql"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="sqlite"
-  - SYMFONY_VERSION="2.8.*" BUNDLES_VERSION="dev-master" DB="postgres"
+  - SYMFONY_VERSION="3.0.*" BUNDLES_VERSION="dev-master" DB="mysql"
+  - SYMFONY_VERSION="3.0.*" BUNDLES_VERSION="dev-master" DB="sqlite"
+  - SYMFONY_VERSION="3.0.*" BUNDLES_VERSION="dev-master" DB="postgres"
 
 before_install:
   - composer selfupdate
@@ -55,7 +55,7 @@ install:
   - npm install grunt-cli
   - npm install uglify-js
   - npm install uglifycss
-  - chmod -R 777 app/cache/ app/logs/
+  - chmod -R 777 var/cache/ var/logs/
 
 
 before_script:
@@ -72,8 +72,8 @@ before_script:
   - composer install --no-scripts
   - composer dump-autoload --optimize
   - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
-  - app/console --force --no-interaction doctrine:schema:drop --env=dev
-  - app/console --no-interaction doctrine:schema:create --env=dev
+  - bin/console --force --no-interaction doctrine:schema:drop --env=dev
+  - bin/console --no-interaction doctrine:schema:create --env=dev
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
@@ -82,25 +82,25 @@ before_script:
   - sleep 5
 
 script:
-  - app/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-  - app/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
+  - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
+  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
   - bundle install
   - npm install
   - bower install
   - gulp build || grunt build
-  - app/console --force --no-interaction doctrine:schema:drop --env=dev
-  - app/console --no-interaction doctrine:schema:create --env=dev
-  - app/console --no-interaction doctrine:fixtures:load --env=dev
-  - app/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-  - app/console --no-interaction assets:install --env=test
-  - app/console --no-interaction assetic:dump --env=test
-  - app/console --no-interaction cache:clear --env=test
-  - app/console --no-interaction cache:warmup --env=test
-  - chmod -R 777 app/cache/ app/logs/
-  - app/console server:start
+  - bin/console --force --no-interaction doctrine:schema:drop --env=dev
+  - bin/console --no-interaction doctrine:schema:create --env=dev
+  - bin/console --no-interaction doctrine:fixtures:load --env=dev
+  - bin/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
+  - bin/console --no-interaction assets:install --env=test
+  - bin/console --no-interaction assetic:dump --env=test
+  - bin/console --no-interaction cache:clear --env=test
+  - bin/console --no-interaction cache:warmup --env=test
+  - chmod -R 777 var/cache/ var/logs/
+  - bin/console server:start
   - phpunit -c app
   - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
-  - app/console server:stop
+  - bin/console server:stop
 
 notifications:
   email:
