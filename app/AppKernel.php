@@ -48,7 +48,6 @@ class AppKernel extends Kernel
         );
 
         if (in_array($this->getEnvironment(), array('dev'), true)) {
-            $bundles[] = new Kunstmaan\LiveReloadBundle\KunstmaanLiveReloadBundle();
             $bundles[] = new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle();
         }
 
