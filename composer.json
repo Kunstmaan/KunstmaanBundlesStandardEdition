@@ -8,7 +8,7 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "kunstmaan/bundles-cms": "dev-master",
+        "kunstmaan/bundles-cms": "~3.5.2",
         "symfony-cmf/routing-bundle": "~1.4.0-RC1",
         "symfony-cmf/routing": "~1.4.0-RC2",
         "raven/raven": "~0.13.0",
