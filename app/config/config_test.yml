@@ -18,7 +18,7 @@ swiftmailer:
 assetic:
     use_controller: "%use_assetic_controller%"
     node: node
-    sass: sass
+    sass: /usr/bin/sass
     filters:
         uglifyjs2:
             bin: node_modules/uglify-js/bin/uglifyjs
