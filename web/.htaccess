@@ -19,6 +19,21 @@ DirectoryIndex app.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+    # Enable maintenance: copy maintenance_template.html to maintenance.html
+    #
+    # never maintenance for admin
+    RewriteRule ^[^/]+/admin.* %{ENV:BASE}/app.php [L,END]
+    RewriteRule ^admin.* %{ENV:BASE}/app.php [L,END]
+
+    RewriteCond %{DOCUMENT_ROOT}/maintenance.html -f
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} -l
+    # if you have the nomaintenance cookie you should not see the maintenance page
+    RewriteCond %{HTTP_COOKIE} !^.*nomaintenance.*$ [NC]
+    RewriteCond %{REQUEST_FILENAME} !\.(css|gif|jpg|png|js|woff|jpeg|svg|woff2).*
+    RewriteRule ^ maintenance.html [L]
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
