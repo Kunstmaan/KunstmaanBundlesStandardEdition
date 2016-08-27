@@ -77,8 +77,8 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
-  - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>&1 &
+  - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
+  - java -jar selenium-server-standalone-2.53.1.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
@@ -99,7 +99,7 @@ script:
   - chmod -R 777 var/cache/ var/logs/
   - bin/console server:start
   - phpunit -c app
-  - php -d memory_limit=2048M bin/behat @MyProjectWebsiteBundle --verbose
+  - php -d memory_limit=2048M bin/behat --suite=default --verbose
   - bin/console server:stop
 
 notifications:
