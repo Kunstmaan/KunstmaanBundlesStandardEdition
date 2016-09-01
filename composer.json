@@ -28,7 +28,13 @@
         "phpunit/phpunit": "~4.4",
         "fzaninotto/faker": "~1.5",
         "nelmio/alice": "~1.6",
-        "fabpot/goutte": "~1.0"
+        "fabpot/goutte": "~1.0",
+        "phpro/grumphp": "dev-master",
+        "phpmd/phpmd": "~2.4",
+        "squizlabs/php_codesniffer": "~2.6",
+        "leaphub/phpcs-symfony2-standard": "~2.0",
+        "fabpot/php-cs-fixer": "~1.12",
+        "sebastian/phpcpd": "~2.0"
     },
     "scripts": {
         "post-root-package-install": [
