@@ -16,7 +16,8 @@
         "ekino/newrelic-bundle": "~1.3.2",
         "doctrine/doctrine-migrations-bundle": "~1.1.1",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "kriswallsmith/spork": "~0.3.0"
+        "kriswallsmith/spork": "~0.3.0",
+        "sentry/sentry": "^1.4"
     },
     "require-dev": {
         "behat/behat": "dev-master",
@@ -42,7 +43,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Kunstmaan\\AdminBundle\\Composer\\ScriptHandler::buildParameters"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
