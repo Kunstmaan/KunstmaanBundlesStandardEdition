@@ -5,9 +5,9 @@ framework:
     ide:                "phpstorm://open?file=%%f&line=%%l"
     esi:                { enabled: true }
     fragments:          { path: /_fragment }
-    translator:         { fallback: %locale% }
+    translator:         { fallback: "%locale%" }
     session:
-        name:               %session_prefix%
+        name:               "%session_prefix%"
         # set true if no scripting languages need to access the cookie
         cookie_httponly:    false
     assets:
@@ -15,10 +15,10 @@ framework:
 
 twig:
     globals:
-        websitetitle: %websitetitle%
-        defaultlocale: %defaultlocale%
-        requiredlocales: %requiredlocales%
-        gtm_code: %analytics.googletagmanager%
+        websitetitle: "%websitetitle%"
+        defaultlocale: "%defaultlocale%"
+        requiredlocales: "%requiredlocales%"
+        gtm_code: "%analytics.googletagmanager%"
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
@@ -33,7 +33,7 @@ assetic:
         uglifycss:
             bin: /usr/bin/uglifycss
         yui_js:
-            jar: %kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar
+            jar: "%kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar"
         jpegoptim:
             bin: jpegoptim
             strip_all: true
@@ -84,7 +84,7 @@ parameters:
     assetic.cache.class: Assetic\Cache\ArrayCache
 
 stof_doctrine_extensions:
-    default_locale: %defaultlocale%
+    default_locale: "%defaultlocale%"
     translation_fallback: true
     orm:
         default:

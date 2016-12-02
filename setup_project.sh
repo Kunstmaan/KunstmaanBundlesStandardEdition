@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-app/console kuma:generate:bundle
-app/console kuma:generate:default-site
-app/console doctrine:database:create
-app/console doctrine:schema:create
-app/console doctrine:fixtures:load
+bin/console kuma:generate:bundle
+bin/console kuma:generate:default-site
+bin/console doctrine:database:create
+bin/console doctrine:schema:create
+bin/console doctrine:fixtures:load
 
 ## Optionaly: create admin behat tests
-app/console kuma:generate:admin-tests
+bin/console kuma:generate:admin-tests
 
 npm install -g bower
 npm install -g gulp
@@ -19,5 +19,5 @@ npm install
 bower install
 gulp build
 
-app/console assets:install --symlink
-app/console assetic:dump
+bin/console assets:install --symlink
+bin/console assetic:dump
