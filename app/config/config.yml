@@ -19,6 +19,7 @@ twig:
         defaultlocale: %defaultlocale%
         requiredlocales: %requiredlocales%
         gtm_code: %analytics.googletagmanager%
+        multilanguage: '%multilanguage%'
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
