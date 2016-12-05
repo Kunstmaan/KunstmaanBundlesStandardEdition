@@ -22,7 +22,7 @@ monolog:
                 - ^/
         sentry:
             type:  raven
-            dsn:   %sentry.dsn%
+            dsn:   "%sentry.dsn%"
             level: critical
         nested:
             type:  stream
