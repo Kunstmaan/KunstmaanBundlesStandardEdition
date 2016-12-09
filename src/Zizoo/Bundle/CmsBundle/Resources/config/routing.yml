@@ -1,0 +1,5 @@
+zizoocmsbundle_default:
+    resource: '@ZizooCmsBundle/Controller/DefaultController.php'
+    type:     annotation
+    prefix:   /
+
