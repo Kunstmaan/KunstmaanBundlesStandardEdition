@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7296f56a619c2c5acceac773c5327737",
-    "content-hash": "6848d5c3d7d6b2be8cf570dcc6be5a56",
+    "hash": "6177f22a7b32b34925d629c67eb92aab",
+    "content-hash": "175eacfdc1a29ed431542f80176ff418",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2458,16 +2458,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "4.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "cdb867296b95d70db8364fd8a743012c26eb42b1"
+                "reference": "8eec2517d3db6581833977120e9f5408b774e4a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/cdb867296b95d70db8364fd8a743012c26eb42b1",
-                "reference": "cdb867296b95d70db8364fd8a743012c26eb42b1",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/8eec2517d3db6581833977120e9f5408b774e4a5",
+                "reference": "8eec2517d3db6581833977120e9f5408b774e4a5",
                 "shasum": ""
             },
             "require": {
@@ -2546,7 +2546,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -2573,7 +2573,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2016-12-13 13:02:22"
+            "time": "2016-12-13 13:03:38"
         },
         {
             "name": "kunstmaan/google-api-custom",
@@ -6529,6 +6529,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "symfony-cmf/routing-bundle": 20,
         "friendsofsymfony/user-bundle": 10,
         "behat/behat": 20,
