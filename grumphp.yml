@@ -1,0 +1,37 @@
+parameters:
+    bin_dir: "./bin"
+    git_dir: "."
+    ascii:
+        failed: kuma-fail.txt
+        succeeded: kuma-happy.txt
+    tasks:
+#        behat: ~
+#        phpunit: ~
+#        gulp: ~
+        composer: ~
+        git_blacklist:
+            keywords:
+                - "die("
+                - "var_dump("
+                - "exit;"
+                - "exit();"
+                - "eval("
+                - "dump("
+                - "console.log("
+#       git_commit_message:
+#            matchers:
+#                - /JIRA-([0-9]*)/
+#            case_insensitive: true
+#            multiline: true
+#        phpcs:
+#            standard: "vendor/leaphub/phpcs-symfony2-standard/leaphub/phpcs/Symfony2/"
+#        phpcsfixer: ~
+#        phpmd:
+#            ruleset:
+#                - "phpmd.xml"
+        securitychecker:
+            lockfile: ./composer.lock
+        jsonlint: ~
+        yamllint: ~
+
+    extensions: []
