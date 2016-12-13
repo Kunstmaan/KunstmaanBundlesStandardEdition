@@ -22,11 +22,11 @@ security:
                 check_path: fos_user_security_check
                 provider: fos_userbundle
             logout:
-              path:   fos_user_security_logout
-              target: KunstmaanAdminBundle_homepage
+                path:   fos_user_security_logout
+                target: KunstmaanAdminBundle_homepage
             anonymous:    true
             remember_me:
-                secret:   %secret%
+                secret:   "%secret%"
                 lifetime: 604800
                 path:     /
                 domain:   ~

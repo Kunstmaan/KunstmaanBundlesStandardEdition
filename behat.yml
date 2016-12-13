@@ -10,24 +10,30 @@
 
 default:
     extensions:
-        Behat\Symfony2Extension\Extension:
-          mink_driver: true
+        Behat\Symfony2Extension:
+#          mink_driver: true
           kernel:
             env: test
             debug: true
-        Behat\MinkExtension\Extension:
+        Behat\MinkExtension:
             base_url: 'http://localhost:8000/'
             #javascript_session: sahi
             browser_name: firefox
-            sahi:
             goutte: ~
             selenium2: ~
-            files_path: '%behat.paths.base%/src/MyProject/WebsiteBundle/Features/Media/'
+            files_path: '%paths.base%/src/MyProject/WebsiteBundle/Features/Media/'
 
-    paths:
-        features: features
-        bootstrap: %behat.paths.features%/Context
-
-    context:
-        parameters:
-            language: 'multi'
+    suites:
+        default:
+            type: symfony_bundle
+            contexts:
+                - MyProject\WebsiteBundle\Features\Context\FeatureContext:
+                    parameters:
+                        language: multi
+                - MyProject\WebsiteBundle\Features\Context\GroupContext
+                - MyProject\WebsiteBundle\Features\Context\MediaContext
+                - MyProject\WebsiteBundle\Features\Context\PageContext
+                - MyProject\WebsiteBundle\Features\Context\PagePartContext
+                - MyProject\WebsiteBundle\Features\Context\RoleContext
+                - MyProject\WebsiteBundle\Features\Context\UserContext
+            bundle: 'MyProjectWebsiteBundle'
