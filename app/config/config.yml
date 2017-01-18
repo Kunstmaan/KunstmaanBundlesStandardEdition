@@ -215,6 +215,8 @@ kunstmaan_translator:
 kunstmaan_admin:
     admin_password: -adminpwd-
     dashboard_route: 'kunstmaan_dashboard'
+    default_admin_locale: "%defaultlocale%"
+    admin_locales: ["%defaultlocale%"]
 
 ekino_new_relic:
     enabled:        true
