@@ -1,0 +1,16 @@
+name: Main
+context: main
+types:
+    - { name: Audio, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\AudioPagePart }
+    - { name: Button, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ButtonPagePart }
+    - { name: Download, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\DownloadPagePart }
+    - { name: Header, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\HeaderPagePart }
+    - { name: Image, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ImagePagePart }
+    - { name: IntroText, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\IntroTextPagePart }
+    - { name: Line, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinePagePart }
+    - { name: Link, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\LinkPagePart }
+    - { name: RawHtml, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\RawHtmlPagePart }
+    - { name: Text, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TextPagePart }
+    - { name: Toc, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\TocPagePart }
+    - { name: ToTop, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\ToTopPagePart }
+    - { name: Video, class: Zizoo\Bundle\CmsBundle\Entity\PageParts\VideoPagePart }

@@ -213,7 +213,7 @@ kunstmaan_translator:
     managed_locales: ['nl', 'en', 'de', 'fr']
 
 kunstmaan_admin:
-    admin_password: -adminpwd-
+    admin_password: p9SDpjiC
     dashboard_route: 'kunstmaan_dashboard'
 
 ekino_new_relic:
