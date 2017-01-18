@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]> <html class="no-js lte-ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+
+    <title>Maintenance</title>
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/frontend/css/style.min.css" type="text/css" />
+
+</head>
+<body class="splash splash--maintenance">
+<div class="off-canvas__wrapper  .text-center">
+    <div class="splash__container" style="text-align: center">
+
+        <header class="row">
+            <div class="col-sm-12">
+                <img id="js-maintenance" class="splash__header__logo" src="/apple-touch-icon.png" alt="Logo">
+            </div>
+        </header>
+        <div class="row splash__content" >
+            <div class="col-sm-12 splash__content__section">
+                <h1 class="splash__content__title">
+                    Maintenance
+                </h1>
+                <div class="splash__content__links">
+                    <p>
+                        We are currently in maintenance
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- maintenance-inject:js -->
+<script >
+
+var Maintenance = Maintenance || {};
+
+Maintenance = (function(window, undefined) {
+
+    var init, clickHandler, setCookie,
+        clicks = 0,
+        minClicks = 8,
+        logo,
+        cookie = {
+            name: 'nomaintenance',
+            value: 'true',
+            expires: 30 //minutes
+        };
+
+    clickHandler = function() {
+        clicks++;
+
+        if (clicks >= minClicks) {
+            logo.removeEventListener('click', clickHandler, false);
+            setCookie();
+            window.location.reload();
+        }
+    };
+
+    setCookie = function() {
+        var date = new Date(new Date().getTime() + (cookie.expires * 60 * 1000)),
+            expires = ';expires="' + date.toGMTString() + '"';
+
+        document.cookie = cookie.name + '=' + cookie.value + expires + ';path=/';
+    };
+
+    init = function() {
+        logo = document.getElementById('js-maintenance');
+        logo.addEventListener('click', clickHandler, false);
+    };
+
+    return {
+        init: init
+    };
+
+})(window);
+
+document.addEventListener('DOMContentLoaded', function() {
+    Maintenance.init();
+});
+</script>
+<!-- endinject -->
+</body>
+</html>
+
+
