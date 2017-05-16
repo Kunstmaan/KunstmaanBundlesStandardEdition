@@ -11,3 +11,5 @@ bin/console kuma:generate:admin-tests
 
 ## Optionaly: build all assets (FE & CMS)
 ./buildUI.sh
+
+bin/console assets:install --symlink
