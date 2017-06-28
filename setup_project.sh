@@ -9,15 +9,7 @@ bin/console doctrine:fixtures:load
 ## Optionaly: create admin behat tests
 bin/console kuma:generate:admin-tests
 
-npm install -g bower
-npm install -g gulp
-npm install -g uglify-js
-npm install -g uglifycss
-
-bundle install
-npm install
-bower install
-gulp build
+## Optionaly: build all assets (FE & CMS)
+./buildUI.sh
 
 bin/console assets:install --symlink
-bin/console assetic:dump
