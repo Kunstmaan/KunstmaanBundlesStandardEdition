@@ -212,6 +212,9 @@ kunstmaan_translator:
     enabled: true
     managed_locales: ['nl', 'en', 'de', 'fr']
 
+kunstmaan_page_part:
+    extended_pagepart_chooser: true
+
 kunstmaan_admin:
     admin_password: -adminpwd-
     dashboard_route: 'kunstmaan_dashboard'
