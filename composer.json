@@ -9,9 +9,9 @@
     },
     "require": {
         "kunstmaan/bundles-cms": "dev-master",
-        "symfony-cmf/routing-bundle": "dev-master",
-        "symfony-cmf/routing": "~1.4",
-        "friendsofsymfony/http-cache-bundle": "~1.3.6",
+	"symfony-cmf/routing-bundle": "dev-master#09a74726050e02eb5eafb5d3d40fe411ab934a37 as 2.0",
+	"symfony-cmf/routing": "dev-master#b93704ca098334f56e9b317932f21a4362e620db as 2.0",
+	"friendsofsymfony/http-cache-bundle": "~1.3.6",
         "ekino/newrelic-bundle": "~1.3.2",
         "doctrine/doctrine-migrations-bundle": "~1.1.1",
         "friendsofsymfony/user-bundle": "2.0.0-beta1",
@@ -55,7 +55,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "5.5.9"
+            "php": "5.6"
         }
     },
     "extra": {
