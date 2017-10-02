@@ -195,13 +195,6 @@ services:
     kunstmaan_newrelic_naming_strategy:
         class: Kunstmaan\UtilitiesBundle\Helper\UrlTransactionNamingStrategy
 
-    gedmo.listener.tree:
-        class: Gedmo\Tree\TreeListener
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-        calls:
-            - [ setAnnotationReader, [ "@annotation_reader" ] ]
-
     fos_user.doctrine_registry:
         alias: doctrine
 
