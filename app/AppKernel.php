@@ -47,11 +47,11 @@ class AppKernel extends Kernel
             //new Kunstmaan\LeadGenerationBundle\KunstmaanLeadGenerationBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev'), true)) {
+        if (in_array($this->getEnvironment(), array('dev', 'docker'), true)) {
             $bundles[] = new Kunstmaan\GeneratorBundle\KunstmaanGeneratorBundle();
         }
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'docker'), true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Kunstmaan\BehatBundle\KunstmaanBehatBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
