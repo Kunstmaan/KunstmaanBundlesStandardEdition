@@ -20,17 +20,17 @@ if (extension_loaded('apc') && ini_get('apc.enabled')) {
     $apcLoader->register(true);
 }
 
-if (getenv('APP_ENV') === 'dev') {
+if (getenv('APP_ENV') === 'dev' || getenv('APP_ENV') === 'docker') {
     umask(0000);
     Debug::enable();
-    $kernel = new AppKernel('dev', true);
+    $kernel = new AppKernel(getenv('APP_ENV'), true);
 } else {
     $kernel = new AppKernel('prod', false);
 }
 
 $kernel->loadClassCache();
 
-if (getenv('APP_ENV') !== 'dev') {
+if (getenv('APP_ENV') !== 'dev' && getenv('APP_ENV') !== 'docker') {
     if (!isset($_SERVER['HTTP_SURROGATE_CAPABILITY']) || false === strpos($_SERVER['HTTP_SURROGATE_CAPABILITY'], 'ESI/1.0')) {
         $kernel = new AppCache($kernel);
     }
