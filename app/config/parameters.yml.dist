@@ -29,7 +29,8 @@ parameters:
     websitetitle:               MyProject
     session_prefix:             myproject
 
-    searchport:                 9200
+    kunstmaan_search.hostname:  localhost
+    kunstmaan_search.port:      9200
     searchindexname:            myproject
     searchindexprefix:          myproject
 
