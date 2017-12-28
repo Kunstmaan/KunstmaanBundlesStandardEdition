@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "27bdb61b50b51936e90fb13dced36a79",
-    "content-hash": "d730a6fa06b8c1706faa1d50e3fc87e6",
+    "hash": "bb2c7348a1c40911bd9ecef2fbfeee7c",
+    "content-hash": "2c703aae84a9f3f74e5ee12e52bcf35d",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -290,6 +290,69 @@
                 "import"
             ],
             "time": "2014-04-04 11:01:36"
+        },
+        {
+            "name": "defuse/php-encryption",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/defuse/php-encryption.git",
+                "reference": "5176f5abb38d3ea8a6e3ac6cd3bbb54d8185a689"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/5176f5abb38d3ea8a6e3ac6cd3bbb54d8185a689",
+                "reference": "5176f5abb38d3ea8a6e3ac6cd3bbb54d8185a689",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "paragonie/random_compat": "~2.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^2.0|^3.0",
+                "phpunit/phpunit": "^4|^5"
+            },
+            "bin": [
+                "bin/generate-defuse-key"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Defuse\\Crypto\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Hornby",
+                    "email": "taylor@defuse.ca",
+                    "homepage": "https://defuse.ca/"
+                },
+                {
+                    "name": "Scott Arciszewski",
+                    "email": "info@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "Secure PHP Encryption Library",
+            "keywords": [
+                "aes",
+                "authenticated encryption",
+                "cipher",
+                "crypto",
+                "cryptography",
+                "encrypt",
+                "encryption",
+                "openssl",
+                "security",
+                "symmetric key cryptography"
+            ],
+            "time": "2017-05-18 21:28:48"
         },
         {
             "name": "doctrine/annotations",
@@ -2093,23 +2156,24 @@
         },
         {
             "name": "imagine/imagine",
-            "version": "v0.5.0",
+            "version": "v0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "f64ec666baaa800edcbf237db41121a569230709"
+                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
-                "reference": "f64ec666baaa800edcbf237db41121a569230709",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/a9a702a946073cbca166718f1b02a1e72d742daa",
+                "reference": "a9a702a946073cbca166718f1b02a1e72d742daa",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "sami/sami": "dev-master"
+                "sami/sami": "^3.3",
+                "symfony/phpunit-bridge": "^3.2"
             },
             "suggest": {
                 "ext-gd": "to use the GD implementation",
@@ -2117,6 +2181,11 @@
                 "ext-imagick": "to use the Imagick implementation"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Imagine": "lib/"
@@ -2141,7 +2210,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2013-07-10 17:25:36"
+            "time": "2017-05-16 10:31:22"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2594,21 +2663,22 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "4.0.3",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "30dd4716db9bd1638bb8faa36e25e4959dde064a"
+                "reference": "e612ca979b9050649490533e08f6cd1956cddd5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/30dd4716db9bd1638bb8faa36e25e4959dde064a",
-                "reference": "30dd4716db9bd1638bb8faa36e25e4959dde064a",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/e612ca979b9050649490533e08f6cd1956cddd5c",
+                "reference": "e612ca979b9050649490533e08f6cd1956cddd5c",
                 "shasum": ""
             },
             "require": {
                 "box/spout": "^2.5",
                 "ddeboer/data-import-bundle": "~0.1",
+                "defuse/php-encryption": "v2.1.0",
                 "doctrine/dbal": "^2.5",
                 "doctrine/doctrine-bundle": "^1.6",
                 "doctrine/doctrine-cache-bundle": "^1.2",
@@ -2619,12 +2689,12 @@
                 "friendsofsymfony/user-bundle": "~2.0",
                 "gedmo/doctrine-extensions": "~2.3",
                 "guzzlehttp/guzzle": "~6.1",
-                "imagine/imagine": "v0.5.0",
+                "imagine/imagine": "~0.6",
                 "incenteev/composer-parameter-handler": "^2.0",
                 "knplabs/knp-gaufrette-bundle": "~0.1",
                 "knplabs/knp-menu-bundle": "~2.0",
                 "kunstmaan/google-api-custom": "~1.0",
-                "liip/imagine-bundle": "v1.4.3",
+                "liip/imagine-bundle": "~1.7",
                 "php": ">=5.6.0",
                 "ruflin/elastica": "^3.2",
                 "sensio/distribution-bundle": "^5.0",
@@ -2681,7 +2751,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -2708,7 +2778,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2017-12-28 19:28:38"
+            "time": "2017-12-28 20:36:32"
         },
         {
             "name": "kunstmaan/google-api-custom",
@@ -2750,25 +2820,29 @@
         },
         {
             "name": "liip/imagine-bundle",
-            "version": "1.4.3",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "22d625e92337c1c25338922dc08706182be9b02f"
+                "reference": "3084c77e984ec669e0d645250a3cb1077d8b92f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/22d625e92337c1c25338922dc08706182be9b02f",
-                "reference": "22d625e92337c1c25338922dc08706182be9b02f",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/3084c77e984ec669e0d645250a3cb1077d8b92f6",
+                "reference": "3084c77e984ec669e0d645250a3cb1077d8b92f6",
                 "shasum": ""
             },
             "require": {
-                "imagine/imagine": "~0.5,<0.7",
+                "imagine/imagine": "^0.6.3|^0.7.0,<0.8",
                 "php": "^5.3.9|^7.0",
+                "symfony/asset": "~2.3|~3.0",
                 "symfony/filesystem": "~2.3|~3.0",
                 "symfony/finder": "~2.3|~3.0",
                 "symfony/framework-bundle": "~2.3|~3.0",
-                "symfony/options-resolver": "~2.3|~3.0"
+                "symfony/options-resolver": "~2.3|~3.0",
+                "symfony/process": "~2.3|~3.0",
+                "symfony/templating": "~2.3|~3.0",
+                "symfony/translation": "~2.3|~3.0"
             },
             "require-dev": {
                 "amazonwebservices/aws-sdk-for-php": "~1.0",
@@ -2776,33 +2850,49 @@
                 "doctrine/cache": "~1.1",
                 "doctrine/orm": "~2.3",
                 "ext-gd": "*",
-                "phpunit/phpunit": "~4.3",
+                "friendsofphp/php-cs-fixer": "~1.0",
+                "phpunit/phpunit": "~4.3|~5.0",
                 "psr/log": "~1.0",
+                "satooshi/php-coveralls": "~1.0",
+                "sllh/php-cs-fixer-styleci-bridge": "~2.1",
                 "symfony/browser-kit": "~2.3|~3.0",
                 "symfony/console": "~2.3|~3.0",
                 "symfony/dependency-injection": "~2.3|~3.0",
                 "symfony/form": "~2.3|~3.0",
                 "symfony/phpunit-bridge": "~2.3|~3.0",
+                "symfony/validator": "~2.3|~3.0",
                 "symfony/yaml": "~2.3|~3.0",
-                "twig/twig": "~1.12"
+                "twig/twig": "~1.12|~2.0"
             },
             "suggest": {
-                "amazonwebservices/aws-sdk-for-php": "Add it if you'd like to use aws v1 resolver",
-                "aws/aws-sdk-php": "Add it if you'd like to use aws v2 or v3 resolver",
-                "league/flysystem": "If you'd want to use Flysystem binary loader",
-                "monolog/monolog": "If you'd want to write logs",
-                "twig/twig": "If you'd want to use some handy twig filters, version 1.12 or greater required"
+                "alcaeus/mongo-php-adapter": "required on PHP >= 7.0 to use mongo components with mongodb extension",
+                "amazonwebservices/aws-sdk-for-php": "required to use AWS version 1 cache resolver",
+                "aws/aws-sdk-php": "required to use AWS version 2/3 cache resolver",
+                "doctrine/mongodb-odm": "required to use mongodb-backed doctrine components",
+                "enqueue/enqueue-bundle": "add if you like to process images in background",
+                "ext-exif": "required to read EXIF metadata from images",
+                "ext-gd": "required to use gd driver",
+                "ext-gmagick": "required to use gmagick driver",
+                "ext-imagick": "required to use imagick driver",
+                "ext-mongo": "required for mongodb components on PHP <7.0",
+                "ext-mongodb": "required for mongodb components on PHP >=7.0",
+                "league/flysystem": "required to use FlySystem data loader or cache resolver",
+                "monolog/monolog": "A psr/log compatible logger is required to enable logging",
+                "twig/twig": "required to use the provided Twig extension. Version 1.12 or greater needed"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-1.0": "1.7-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Liip\\ImagineBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2814,13 +2904,20 @@
                     "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
                 }
             ],
-            "description": "This Bundle assists in imagine manipulation using the imagine library",
+            "description": "This bundle provides an image manipulation abstraction toolkit for Symfony-based projects.",
             "homepage": "http://liip.ch",
             "keywords": [
+                "bundle",
                 "image",
-                "imagine"
+                "imagine",
+                "liip",
+                "manipulation",
+                "photos",
+                "pictures",
+                "symfony",
+                "transformation"
             ],
-            "time": "2016-01-14 07:16:25"
+            "time": "2017-09-09 03:53:30"
         },
         {
             "name": "monolog/monolog",
