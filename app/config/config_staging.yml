@@ -66,3 +66,9 @@ fos_http_cache:
                         max_age: 360
                         s_maxage: 360
                     vary: [Cookie, Accept-Encoding, Accept-Language]
+
+liip_imagine:
+  loaders:
+    default:
+      filesystem:
+        data_root: "%liip_imagine_filesystem_data_root%"

@@ -53,7 +53,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "5.6"
+            "php": "5.6.0"
         }
     },
     "extra": {
