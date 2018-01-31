@@ -8,7 +8,7 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "kunstmaan/bundles-cms": "dev-master",
+        "kunstmaan/bundles-cms": "~4.2",
         "friendsofsymfony/http-cache-bundle": "~1.3.6",
         "ekino/newrelic-bundle": "~1.3.2",
         "doctrine/doctrine-migrations-bundle": "~1.1.1",

@@ -72,7 +72,7 @@ before_script:
 
 script:
   - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --no-interaction
+  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --no-interaction
   - bundle install
   - npm install
   - bower install
