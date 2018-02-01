@@ -37,7 +37,7 @@ if (getenv('APP_ENV') !== 'dev' && getenv('APP_ENV') !== 'docker') {
 }
 
 Request::enableHttpMethodParameterOverride();
-Request::setTrustedProxies(array('127.0.0.1'));
+Request::setTrustedProxies(['127.0.0.1'], Request::HEADER_X_FORWARDED_ALL);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
