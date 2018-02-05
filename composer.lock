@@ -2820,16 +2820,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.0",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "68f29d648f012a8c320ef805100b54c8c00c2a54"
+                "reference": "8284972fb4edaf7c79fd1ccc0976f5e1ccc48318"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/68f29d648f012a8c320ef805100b54c8c00c2a54",
-                "reference": "68f29d648f012a8c320ef805100b54c8c00c2a54",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/8284972fb4edaf7c79fd1ccc0976f5e1ccc48318",
+                "reference": "8284972fb4edaf7c79fd1ccc0976f5e1ccc48318",
                 "shasum": ""
             },
             "require": {
@@ -2936,7 +2936,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-01-31 16:40:32"
+            "time": "2018-02-05 11:04:49"
         },
         {
             "name": "kunstmaan/google-api-custom",
