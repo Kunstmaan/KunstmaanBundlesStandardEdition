@@ -8,7 +8,9 @@ use Symfony\Component\Debug\Debug;
  * @var Composer\Autoload\ClassLoader
  */
 $loader = require __DIR__.'/../app/autoload.php';
-include_once __DIR__.'/../var/bootstrap.php.cache';
+if (\PHP_VERSION_ID < 70000) {
+    include_once __DIR__ . '/../var/bootstrap.php.cache';
+}
 
 if (extension_loaded('apc') && ini_get('apc.enabled')) {
     // Enable APC for autoloading to improve performance.
@@ -28,7 +30,9 @@ if (getenv('APP_ENV') === 'dev') {
     $kernel = new AppKernel('prod', false);
 }
 
-$kernel->loadClassCache();
+if (\PHP_VERSION_ID < 70000) {
+    $kernel->loadClassCache();
+}
 
 if (getenv('APP_ENV') !== 'dev') {
     if (!isset($_SERVER['HTTP_SURROGATE_CAPABILITY']) || false === strpos($_SERVER['HTTP_SURROGATE_CAPABILITY'], 'ESI/1.0')) {
