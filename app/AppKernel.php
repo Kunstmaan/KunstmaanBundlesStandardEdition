@@ -70,6 +70,7 @@ class AppKernel extends Kernel
 
     /**
      * @param LoaderInterface $loader
+     * @throws Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
