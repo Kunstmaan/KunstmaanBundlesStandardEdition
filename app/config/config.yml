@@ -226,3 +226,8 @@ ekino_new_relic:
     log_commands:   true
     transaction_naming: service
     transaction_naming_service: kunstmaan_newrelic_naming_strategy
+
+fos_user:
+    from_email:
+        address: "%mailer_from_address%"
+        sender_name: "%mailer_from_name%"
