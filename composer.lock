@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28c099db4814df6b4a6b307a38eeb8af",
-    "content-hash": "c8dde439a9eabf748edaeb999232b6bb",
+    "hash": "cfe6ba97aa7b8f99e002f52198909d3f",
+    "content-hash": "79f4f7e7ad33dccd034dc86abb59dfba",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2822,16 +2822,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.4",
+            "version": "5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "6bf820b99b967b41cb12d47a2d5ec8cab84c85c2"
+                "reference": "c26414405b93ef6aa0f23ae5ace2b933631b1037"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/6bf820b99b967b41cb12d47a2d5ec8cab84c85c2",
-                "reference": "6bf820b99b967b41cb12d47a2d5ec8cab84c85c2",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/c26414405b93ef6aa0f23ae5ace2b933631b1037",
+                "reference": "c26414405b93ef6aa0f23ae5ace2b933631b1037",
                 "shasum": ""
             },
             "require": {
@@ -2938,7 +2938,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-02-20 17:20:34"
+            "time": "2018-03-05 14:40:37"
         },
         {
             "name": "kunstmaan/google-api-custom",
