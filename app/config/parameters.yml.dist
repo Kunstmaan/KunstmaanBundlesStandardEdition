@@ -18,6 +18,8 @@ parameters:
   liip_imagine_filesystem_data_root: 
     - "%kernel.root_dir%/../web"
   locale: en
+  mailer_from_address: "info@myproject.dev"
+  mailer_from_name: "Kunstmaan CMS"
   mailer_host: "127.0.0.1"
   mailer_password: ~
   mailer_transport: smtp
