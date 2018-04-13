@@ -45,12 +45,6 @@ install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
   - sh -c 'printf "\n" | pecl install imagick-3.4.0RC6'
   - npm set progress=false
-  - gem install sass
-  - npm install bower
-  - npm install grunt
-  - npm install grunt-cli
-  - npm install uglify-js
-  - npm install uglifycss
   - chmod -R 777 var/cache/ var/logs/
 
 
@@ -72,18 +66,15 @@ before_script:
 
 script:
   - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --no-interaction
-  - bundle install
+  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --articleoverviewpageparent="HomePage,ContentPage" --no-interaction
+  - nvm install
   - npm install
-  - bower install
-  - gulp build || grunt build
+  - npm run build
   - bin/console --force --no-interaction doctrine:schema:drop --env=dev
   - bin/console --no-interaction doctrine:schema:create --env=dev
   - bin/console --no-interaction doctrine:fixtures:load --env=dev
   - bin/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-  - sudo ln -s $(which sass) /usr/local/bin/sass
   - bin/console --no-interaction assets:install --env=test
-  - bin/console --no-interaction assetic:dump --env=test
   - bin/console --no-interaction cache:clear --env=test
   - bin/console --no-interaction cache:warmup --env=test
   - chmod -R 777 var/cache/ var/logs/
