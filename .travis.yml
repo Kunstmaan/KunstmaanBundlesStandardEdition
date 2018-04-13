@@ -53,7 +53,7 @@ before_script:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
   - composer install --no-scripts
-  - composer require server --no-scripts
+  - composer require symfony/web-server-bundle --no-scripts
   - composer dump-autoload --optimize
   - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
   - bin/console --force --no-interaction doctrine:schema:drop --env=dev
