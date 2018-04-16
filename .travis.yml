@@ -3,6 +3,7 @@ language: php
 sudo: true
 
 addons:
+  chrome: stable
   apt:
     packages:
     - libxss1
@@ -34,6 +35,7 @@ env:
 
 before_install:
   - composer selfupdate
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
@@ -44,7 +46,6 @@ install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
   - sh -c 'printf "\n" | pecl install imagick-3.4.0RC6'
-  - npm set progress=false
   - chmod -R 777 var/cache/ var/logs/
 
 
@@ -61,15 +62,14 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3
   - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-linux64.tar.gz
-  - tar -xzf geckodriver-v0.20.1-linux64.tar.gz
-  - java -Dwebdriver.gecko.driver=geckodriver -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
+  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
   - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
   - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --articleoverviewpageparent="HomePage,ContentPage" --no-interaction
   - nvm install
+  - npm set progress=false
   - npm install
   - npm run build
   - bin/console --force --no-interaction doctrine:schema:drop --env=dev
