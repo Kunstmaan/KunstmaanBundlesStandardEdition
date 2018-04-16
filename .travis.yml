@@ -64,7 +64,7 @@ before_script:
   - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
   - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - ./chromedriver --url-base=/wd/hub
+  - ./chromedriver --url-base=/wd/hub > /dev/null 2>&1 &
   - java -jar selenium-server-standalone-3.9.1.jar -Dwebdriver.chrome.driver="chromedriver" > /dev/null 2>&1 &
   - sleep 5
 
