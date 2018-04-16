@@ -9,6 +9,7 @@ addons:
     - libxss1
     - imagemagick
     - ghostscript
+    - php-imagick
 
 cache:
   directories:
@@ -45,7 +46,7 @@ install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
-  - sh -c 'printf "\n" | pecl install imagick-3.4.0RC6'
+#  - sh -c 'printf "\n" | pecl install imagick-3.4.0RC6'
   - chmod -R 777 var/cache/ var/logs/
 
 
@@ -64,8 +65,9 @@ before_script:
   - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
   - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - ./chromedriver --url-base=/wd/hub > /dev/null 2>&1 &
-  - java -jar selenium-server-standalone-3.9.1.jar -Dwebdriver.chrome.driver="chromedriver" > /dev/null 2>&1 &
+  - sudo cp ./chromedriver /usr/bin/
+  - sudo chmod ugo+rx /usr/bin/chromedriver
+  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
