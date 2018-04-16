@@ -60,8 +60,8 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-  - java -jar selenium-server-standalone-2.53.1.jar > /dev/null 2>&1 &
+  - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
+  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
@@ -79,7 +79,7 @@ script:
   - bin/console --no-interaction cache:warmup --env=test
   - chmod -R 777 var/cache/ var/logs/
   - bin/console server:start
-  - phpunit -c app
+  - phpunit
   - php -d memory_limit=2048M bin/behat --suite=default --verbose
   - bin/console server:stop
 
