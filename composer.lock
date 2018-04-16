@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eeba4b5478d0868814619763d75dd87b",
-    "content-hash": "6dcaf525bc5b5ca61ac5a6cd86c6936b",
+    "hash": "7c30279bce125ce1f32a117fa9c921a7",
+    "content-hash": "68f66b7f59295fa719397945584de143",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2825,16 +2825,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.6",
+            "version": "5.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "80f1ee36d5d645eb3f8c7db4e20b2d7f12edaf30"
+                "reference": "06663d0d08320ba1fb6fe0b976658220db337f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/80f1ee36d5d645eb3f8c7db4e20b2d7f12edaf30",
-                "reference": "80f1ee36d5d645eb3f8c7db4e20b2d7f12edaf30",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/06663d0d08320ba1fb6fe0b976658220db337f57",
+                "reference": "06663d0d08320ba1fb6fe0b976658220db337f57",
                 "shasum": ""
             },
             "require": {
@@ -2849,7 +2849,7 @@
                 "doctrine/orm": "^2.5",
                 "egulias/email-validator": "~1.2",
                 "fpn/doctrine-extensions-taggable": "~0.9",
-                "friendsofsymfony/user-bundle": "~2.0",
+                "friendsofsymfony/user-bundle": "2.0.*",
                 "gedmo/doctrine-extensions": "~2.3",
                 "guzzlehttp/guzzle": "~6.1",
                 "imagine/imagine": "~0.6",
@@ -2872,6 +2872,9 @@
                 "symfony/symfony": "~3.4",
                 "twig/extensions": "~1.0",
                 "white-october/pagerfanta-bundle": "~1.0"
+            },
+            "conflict": {
+                "friendsofsymfony/user-bundle": "<2.0.0, >=2.1.0"
             },
             "replace": {
                 "kunstmaan/admin-bundle": "self.version",
@@ -2941,7 +2944,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-04-13 16:29:51"
+            "time": "2018-04-16 16:56:14"
         },
         {
             "name": "kunstmaan/google-api-custom",
@@ -7271,6 +7274,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "behat/behat": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,
