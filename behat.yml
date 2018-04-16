@@ -18,7 +18,7 @@ default:
         Behat\MinkExtension:
             base_url: 'http://localhost:8000/'
             #javascript_session: sahi
-            browser_name: firefox
+            browser_name: chrome
             goutte: ~
             selenium2: ~
             files_path: '%paths.base%/src/MyProject/WebsiteBundle/Features/Media/'
