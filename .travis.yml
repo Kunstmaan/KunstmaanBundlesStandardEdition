@@ -62,7 +62,10 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3
   - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
+  - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - chromedriver --url-base=/wd/hub
+  - java -jar selenium-server-standalone-3.9.1.jar -Dwebdriver.chrome.driver="chromedriver" > /dev/null 2>&1 &
   - sleep 5
 
 script:
