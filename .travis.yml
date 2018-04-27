@@ -31,7 +31,9 @@ mysql:
   encoding: utf8
 
 env:
-  - DB="mysql"
+  global:
+    - DB="mysql"
+    - TRAVIS_BUILD_DIR=.travis/build
 
 before_install:
   - composer selfupdate
@@ -88,6 +90,9 @@ script:
   - phpunit
   - php -d memory_limit=2048M bin/behat --suite=default --verbose
   - bin/console server:stop
+
+after_failure:
+  -
 
 notifications:
   email:
