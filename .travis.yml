@@ -88,7 +88,7 @@ script:
   - chmod -R 777 var/cache/ var/logs/
   - bin/console server:start
   - phpunit
-  - php -d memory_limit=2048M bin/behat --suite=default --verbose
+  - php -d memory_limit=2048M bin/behat --suite=default --verbose src/MyProject/WebsiteBundle/Features/AdminSettingsGroup.feature
   - bin/console server:stop
 
 after_failure:
