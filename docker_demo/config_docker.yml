@@ -1,0 +1,17 @@
+imports:
+    - { resource: config_dev.yml }
+
+doctrine:
+    dbal:
+        host: "mysql_demo"
+        dbname: "demo"
+        user: "demo"
+        password: "demo"
+
+swiftmailer:
+    transport: "smtp"
+    host: "maildev"
+    port: 25
+
+parameters:
+    kunstmaan_search.hostname: "elasticsearch"
