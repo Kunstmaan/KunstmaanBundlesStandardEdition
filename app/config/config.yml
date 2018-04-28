@@ -97,6 +97,10 @@ liip_imagine:
         default:
             web_path:
                 cache_prefix: uploads/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: "%liip_imagine_filesystem_data_root%"
     driver: imagick
     data_loader: default
     filter_sets:
