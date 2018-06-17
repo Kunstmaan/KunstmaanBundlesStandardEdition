@@ -12,7 +12,8 @@
         "kunstmaan/bundles-cms": "5.1.x-dev",
         "friendsofsymfony/http-cache-bundle": "~1.3.6",
         "ekino/newrelic-bundle": "~1.3.2",
-        "sentry/sentry": "^1.4"
+        "sentry/sentry": "^1.4",
+        "symfony/swiftmailer-bundle": "^2.6.4"
     },
     "require-dev": {
         "behat/behat": "dev-master",
