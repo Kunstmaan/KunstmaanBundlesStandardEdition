@@ -79,6 +79,11 @@ doctrine:
                         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
                         alias: GedmoTree # this one is optional and will default to the name set for the mapping
                         is_bundle: false
+    dbal:
+        driver:   pdo_mysql
+        options:
+            # PDO::MYSQL_ATTR_INIT_COMMAND
+            1002: "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))"
 
 parameters:
     assetic.cache.class: Assetic\Cache\ArrayCache
@@ -97,6 +102,10 @@ liip_imagine:
         default:
             web_path:
                 cache_prefix: uploads/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: "%liip_imagine_filesystem_data_root%"
     driver: imagick
     data_loader: default
     filter_sets:
@@ -226,3 +235,8 @@ ekino_new_relic:
     log_commands:   true
     transaction_naming: service
     transaction_naming_service: kunstmaan_newrelic_naming_strategy
+
+fos_user:
+    from_email:
+        address: "%mailer_from_address%"
+        sender_name: "%mailer_from_name%"

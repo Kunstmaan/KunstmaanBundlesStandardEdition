@@ -3,6 +3,7 @@ language: php
 sudo: true
 
 addons:
+  chrome: stable
   apt:
     packages:
     - libxss1
@@ -12,6 +13,8 @@ addons:
 cache:
   directories:
     - $HOME/.composer/cache
+    - vendor
+    - $BUILD_CACHE_DIR
 
 php:
   - 5.6
@@ -30,10 +33,14 @@ mysql:
   encoding: utf8
 
 env:
-  - DB="mysql"
+  global:
+    - DB="mysql"
+    - BUILD_CACHE_DIR=$HOME/.build-cache
+    - TRAVIS_BUILD_DIR=.travis/build
 
 before_install:
   - composer selfupdate
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
@@ -43,14 +50,7 @@ install:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
-  - sh -c 'printf "\n" | pecl install imagick-3.4.0RC6'
-  - npm set progress=false
-  - gem install sass
-  - npm install bower
-  - npm install grunt
-  - npm install grunt-cli
-  - npm install uglify-js
-  - npm install uglifycss
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" = "< 7.[1]" ]; then printf "\n" | pecl install imagick-3.4.0RC6; fi;'
   - chmod -R 777 var/cache/ var/logs/
 
 
@@ -66,31 +66,36 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-  - java -jar selenium-server-standalone-2.53.1.jar > /dev/null 2>&1 &
+  - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
+  - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo cp ./chromedriver /usr/bin/
+  - sudo chmod ugo+rx /usr/bin/chromedriver
+  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
   - sleep 5
 
 script:
   - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --no-interaction
-  - bundle install
+  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --articleoverviewpageparent="HomePage,ContentPage" --no-interaction
+  - nvm install
+  - npm set progress=false
   - npm install
-  - bower install
-  - gulp build || grunt build
+  - npm run build
   - bin/console --force --no-interaction doctrine:schema:drop --env=dev
   - bin/console --no-interaction doctrine:schema:create --env=dev
   - bin/console --no-interaction doctrine:fixtures:load --env=dev
   - bin/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-  - sudo ln -s $(which sass) /usr/local/bin/sass
   - bin/console --no-interaction assets:install --env=test
-  - bin/console --no-interaction assetic:dump --env=test
   - bin/console --no-interaction cache:clear --env=test
   - bin/console --no-interaction cache:warmup --env=test
   - chmod -R 777 var/cache/ var/logs/
   - bin/console server:start
-  - phpunit -c app
+  - phpunit
   - php -d memory_limit=2048M bin/behat --suite=default --verbose
   - bin/console server:stop
+
+after_failure:
+  - .travis/after_failure.sh
 
 notifications:
   email:
