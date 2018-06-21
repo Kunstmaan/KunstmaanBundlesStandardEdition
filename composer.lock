@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd64cbee3812ffbe78809fa7ff3f52b6",
-    "content-hash": "209f52208591acea3197960dfd26a0ec",
+    "hash": "6bbd402c43092780f3028da73c7d2d44",
+    "content-hash": "953107c17459b1efb3c2f02e8824e1d1",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2831,7 +2831,7 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.7",
+            "version": "5.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
@@ -7407,6 +7407,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "behat/behat": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,
