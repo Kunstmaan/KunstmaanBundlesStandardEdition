@@ -3,7 +3,13 @@
 mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'
 cp app/config/parameters.yml.dist app/config/parameters.yml
 sed -i 's/dbuser/travis/g' app/config/parameters.yml
-composer install --no-scripts --optimize-autoloader || exit $?
+
+if [ "TRAVIS_EVENT_TYPE" != "cron" ]; then
+    composer install --no-scripts --optimize-autoloader;
+else
+    composer update --no-scripts --optimize-autoloader;
+fi;
+
 bin/console --force --no-interaction doctrine:schema:drop --env=dev || exit $?
 bin/console --no-interaction doctrine:schema:create --env=dev || exit $?
 
