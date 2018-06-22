@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+    apache:
+        image: kunstmaan/spaceport-apache
+        links:
+            - php
+        volumes:
+            - demo_files:/app
+        environment:
+            VIRTUAL_PORT: 80
+            DOCUMENT_ROOT: /app/web/
+            HTTPS_METHOD: noredirect
+        ports:
+            - 2468:80
+    php:
+        image: kunstmaan/demo:5.1
+        links:
+            - mysql_demo
+            - elasticsearch
+            - maildev
+        volumes:
+            - demo_files:/app
+        environment:
+            APP_ENV: docker
+    mysql_demo:
+        image: kunstmaan/spaceport-mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: demo
+            MYSQL_USER: demo
+            MYSQL_PASSWORD: demo
+    elasticsearch:
+        image: kunstmaan/spaceport-elasticsearch:6
+        environment:
+            ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    node:
+        image: kunstmaan/spaceport-npm:demo
+        volumes:
+            - demo_files:/src
+    maildev:
+        image: djfarrelly/maildev
+        ports:
+            - 1080:80
+
+volumes:
+    demo_files: {}
