@@ -32,5 +32,4 @@ parameters:
   secret: ThisTokenIsNotSoSecretChangeIt
   sentry.dsn: "https://XXXXXXXX:XXXXXXXX@app.getsentry.com/XXXX"
   session_prefix: myproject
-  use_assetic_controller: true
   websitetitle: MyProject
