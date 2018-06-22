@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
 
-vendor/bin/upload-textfiles "${TRAVIS_BUILD_DIR}/*.log"
+echo "Upload log files..."
 
-echo "Uploading behat failed step screenshots..."
+# Copy application logs to the build dir
+cp var/logs/test.log ${TRAVIS_BUILD_DIR}
+
+for file in ${TRAVIS_BUILD_DIR}/*.log
+do
+    if [ ! -e "$file" ]
+    then
+        break
+    fi
+
+    url=`cat "$file" | nc termbin.com 9999`
+    echo "$file - $url"
+done
+
+echo "Upload behat failed step screenshots..."
 
 # Please generate a client key for yourself and don't use ours to avoid reaching the rate limit.
 clientid='6747e004f45c83a'
