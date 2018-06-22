@@ -22,33 +22,6 @@ twig:
         #titlecolor: "#000000"
         #titlebgcolor: "#2997CE"
 
-assetic:
-    node: /usr/bin/node
-    filters:
-        cssrewrite: ~
-        scss: ~
-        uglifyjs2:
-            bin: /usr/bin/uglifyjs
-            compress: true
-        uglifycss:
-            bin: /usr/bin/uglifycss
-        yui_js:
-            jar: "%kernel.root_dir%/Resources/tools/java/yuicompressor-2.4.8.jar"
-        jpegoptim:
-            bin: jpegoptim
-            strip_all: true
-            max: 85
-            apply_to: "\\.jpe?g$"
-        optipng:
-            bin: optipng
-            apply_to: "\\.png$"
-            level: 3
-        jpegtran:
-            bin: jpegtran
-            apply_to: "\\.jpe?g$"
-            optimisation: true
-            progressive: true
-
 doctrine:
     orm:
         entity_managers:
@@ -84,9 +57,6 @@ doctrine:
         options:
             # PDO::MYSQL_ATTR_INIT_COMMAND
             1002: "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))"
-
-parameters:
-    assetic.cache.class: Assetic\Cache\ArrayCache
 
 stof_doctrine_extensions:
     default_locale: "%defaultlocale%"
