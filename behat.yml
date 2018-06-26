@@ -11,20 +11,31 @@
 default:
     extensions:
         Behat\Symfony2Extension:
-#          mink_driver: true
           kernel:
             env: test
             debug: true
         Behat\MinkExtension:
             base_url: 'http://localhost:8000/'
-            #javascript_session: sahi
             browser_name: chrome
-            goutte: ~
             selenium2: ~
             files_path: '%paths.base%/src/MyProject/WebsiteBundle/Features/Media/'
+            default_session: chrome
+            sessions:
+                chrome:
+                    selenium2:
+                        browser: chrome
+                        capabilities:
+                            browserName: chrome
+                            browser: chrome
+                            version: ''
+                            chrome:
+                                switches:
+                                    - 'start-fullscreen'
+                                    - 'start-maximized'
+                                    - 'no-sandbox'
 
         Lakion\Behat\MinkDebugExtension:
-            directory: .travis/build
+            directory: '%paths.base%/.travis/build'
             clean_start: false
             screenshot: true
 

@@ -1,18 +1,11 @@
 language: php
 
-sudo: true
-
-addons:
-  chrome: stable
-  apt:
-    packages:
-    - libxss1
-    - imagemagick
-    - ghostscript
+sudo: false
 
 cache:
   directories:
     - $HOME/.composer/cache
+    - node_modules
     - vendor
     - $BUILD_CACHE_DIR
 
@@ -20,17 +13,14 @@ php:
   - 5.6
   - 7.0
   - 7.1
+  - 7.2
 
 matrix:
   fast_finish: true
 
 services:
   - elasticsearch
-
-mysql:
-  database: kunstmaanbundles
-  username: travis
-  encoding: utf8
+  - mysql
 
 env:
   global:
@@ -39,60 +29,16 @@ env:
     - TRAVIS_BUILD_DIR=.travis/build
 
 before_install:
-  - composer selfupdate
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - .travis/before_install.sh
 
 install:
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MINOR_VERSION;") -le 4 ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" = "~ 5.[56]" ] ; then echo yes | pecl install apcu-4.0.10; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" = "7.*" ] ; then pecl config-set preferred_state beta; echo yes | pecl install apcu; echo "extension = apcu.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ] && [ $(php -r "echo PHP_MAJOR_VERSION;") -le 5 ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then echo "memory_limit = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;'
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" = "< 7.[1]" ]; then printf "\n" | pecl install imagick-3.4.0RC6; fi;'
-  - chmod -R 777 var/cache/ var/logs/
-
+  - .travis/install.sh
 
 before_script:
-  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS kunstmaanbundles;'; fi"
-  - cp app/config/parameters.yml.dist app/config/parameters.yml
-  - sh -c "if [ '$DB' = 'mysql' ]; then sed -i 's/dbuser/travis/g' app/config/parameters.yml; fi"
-  - composer install --no-scripts
-  - composer dump-autoload --optimize
-  - php vendor/sensio/distribution-bundle/Resources/bin/build_bootstrap.php
-  - bin/console --force --no-interaction doctrine:schema:drop --env=dev
-  - bin/console --no-interaction doctrine:schema:create --env=dev
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-  - wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
-  - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - sudo cp ./chromedriver /usr/bin/
-  - sudo chmod ugo+rx /usr/bin/chromedriver
-  - java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>&1 &
-  - sleep 5
+  - .travis/before_script.sh
 
 script:
-  - bin/console kuma:generate:bundle --namespace="MyProject\\WebsiteBundle" --no-interaction --dir=src
-  - bin/console kuma:generate:default-site --namespace="MyProject\\WebsiteBundle" --prefix="myproject_" --demosite --browsersync=kunstmaanbundlescms.dev --articleoverviewpageparent="HomePage,ContentPage" --no-interaction
-  - nvm install
-  - npm set progress=false
-  - npm install
-  - npm run build
-  - bin/console --force --no-interaction doctrine:schema:drop --env=dev
-  - bin/console --no-interaction doctrine:schema:create --env=dev
-  - bin/console --no-interaction doctrine:fixtures:load --env=dev
-  - bin/console kuma:generate:admin-tests --namespace="MyProject\\WebsiteBundle"
-  - bin/console --no-interaction assets:install --env=test
-  - bin/console --no-interaction cache:clear --env=test
-  - bin/console --no-interaction cache:warmup --env=test
-  - chmod -R 777 var/cache/ var/logs/
-  - bin/console server:start
-  - phpunit
-  - php -d memory_limit=2048M bin/behat --suite=default --verbose
-  - bin/console server:stop
+  - .travis/script.sh
 
 after_failure:
   - .travis/after_failure.sh
