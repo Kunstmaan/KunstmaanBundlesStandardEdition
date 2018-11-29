@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3277be88927d7e78c99c7856f13accb6",
+    "content-hash": "2fc8547517fbbfcd4c7581a1c8c5992c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2833,16 +2833,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.10",
+            "version": "5.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "1631b02114de9b23d2f10edcccbef1e5108f28ee"
+                "reference": "fe8c716493b73459b8efe88b97c35c29ae449867"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/1631b02114de9b23d2f10edcccbef1e5108f28ee",
-                "reference": "1631b02114de9b23d2f10edcccbef1e5108f28ee",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/fe8c716493b73459b8efe88b97c35c29ae449867",
+                "reference": "fe8c716493b73459b8efe88b97c35c29ae449867",
                 "shasum": ""
             },
             "require": {
@@ -2920,7 +2920,7 @@
                 "behat/symfony2-extension": "~2.1.1",
                 "fzaninotto/faker": "~1.6",
                 "nelmio/alice": "^2.1.4",
-                "phpunit/phpunit": "~4.4",
+                "phpunit/phpunit": "^5.7",
                 "symfony/phpunit-bridge": "~3.0"
             },
             "type": "library",
@@ -2953,7 +2953,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-08-21T15:54:38+00:00"
+            "time": "2018-09-12T15:14:47+00:00"
         },
         {
             "name": "kunstmaan/google-api-custom",
