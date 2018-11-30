@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bff761fa13d8ba5f39e18c70c3200f0",
+    "content-hash": "3cb12ed3c39f660c529a93e4d0662534",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2763,7 +2763,7 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.1.0",
+            "version": "5.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
@@ -7271,6 +7271,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "behat/behat": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,
