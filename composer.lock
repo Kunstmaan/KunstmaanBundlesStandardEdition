@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96cb4be62065b3077d28ffa548c93cb5",
+    "content-hash": "953107c17459b1efb3c2f02e8824e1d1",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2833,16 +2833,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.0.12",
+            "version": "5.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "b6eeb1045922cb4e4ab0803c9a1f6df71869ac07"
+                "reference": "ccbe016cbd72efbac81764c28c80f49bca836d97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/b6eeb1045922cb4e4ab0803c9a1f6df71869ac07",
-                "reference": "b6eeb1045922cb4e4ab0803c9a1f6df71869ac07",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/ccbe016cbd72efbac81764c28c80f49bca836d97",
+                "reference": "ccbe016cbd72efbac81764c28c80f49bca836d97",
                 "shasum": ""
             },
             "require": {
@@ -2954,7 +2954,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-11-29T08:25:51+00:00"
+            "time": "2018-11-29T12:00:46+00:00"
         },
         {
             "name": "kunstmaan/google-api-custom",
@@ -7408,6 +7408,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "behat/behat": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,
