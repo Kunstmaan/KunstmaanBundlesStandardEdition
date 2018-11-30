@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bff761fa13d8ba5f39e18c70c3200f0",
+    "content-hash": "61f728273c4b744a194cf62f02976d91",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2763,16 +2763,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "9cb6dab272f2780d96cf0293a4aed14ee71de103"
+                "reference": "1b817e20699730852d68afa4e89979267035e8ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/9cb6dab272f2780d96cf0293a4aed14ee71de103",
-                "reference": "9cb6dab272f2780d96cf0293a4aed14ee71de103",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/1b817e20699730852d68afa4e89979267035e8ba",
+                "reference": "1b817e20699730852d68afa4e89979267035e8ba",
                 "shasum": ""
             },
             "require": {
@@ -2860,7 +2860,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -2887,7 +2887,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2018-11-29T13:35:32+00:00"
+            "time": "2018-11-29T14:01:02+00:00"
         },
         {
             "name": "kunstmaan/google-api-custom",
@@ -7271,6 +7271,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "kunstmaan/bundles-cms": 20,
         "behat/behat": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,

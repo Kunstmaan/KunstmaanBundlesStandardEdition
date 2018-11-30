@@ -9,7 +9,7 @@
     },
     "require": {
         "php": ">=5.6",
-        "kunstmaan/bundles-cms": "^5.1",
+        "kunstmaan/bundles-cms": "5.2.x-dev",
         "friendsofsymfony/http-cache-bundle": "~1.3.6",
         "ekino/newrelic-bundle": "~1.3.2",
         "sentry/sentry": "^1.4",
