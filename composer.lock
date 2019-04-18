@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac5b99bd260364c41af4262ec285c1b9",
-    "content-hash": "dfe5dcdde3cdc4507a81de3e628d85c1",
+    "hash": "847e7cabc67ba788581faa9ba4736484",
+    "content-hash": "229a273cb3482d03fe5ebe98e0dfe7df",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3032,16 +3032,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "f49346d16a1fc989a723cd79e7f1776a22b0844b"
+                "reference": "e0dd244204779fa5c32b837e87cad987df7ab8b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/f49346d16a1fc989a723cd79e7f1776a22b0844b",
-                "reference": "f49346d16a1fc989a723cd79e7f1776a22b0844b",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/e0dd244204779fa5c32b837e87cad987df7ab8b7",
+                "reference": "e0dd244204779fa5c32b837e87cad987df7ab8b7",
                 "shasum": ""
             },
             "require": {
@@ -3089,8 +3089,9 @@
                 "symfony/options-resolver": "^3.4|^4.0",
                 "symfony/property-access": "^3.4|^4.0",
                 "symfony/routing": "^3.4|^4.0",
-                "symfony/security": "^3.4|^4.0",
                 "symfony/security-acl": "^2.8|^3.0",
+                "symfony/security-core": "^3.4|^4.0",
+                "symfony/security-http": "^3.4|^4.0",
                 "symfony/serializer": "^3.4|^4.0",
                 "symfony/swiftmailer-bundle": "^2.3|^3.0",
                 "symfony/templating": "^3.4|^4.0",
@@ -3171,7 +3172,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2019-02-12 15:22:38"
+            "time": "2019-03-10 14:16:11"
         },
         {
             "name": "kunstmaan/google-api-custom",
