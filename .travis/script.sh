@@ -25,7 +25,7 @@ bin/console lint:yaml app/config || exit $?
 bin/console lint:twig app/Resources/views || exit $?
 bin/console lint:twig src/MyProject/WebsiteBundle/Resources/views || exit $?
 # Check that the application doesn't use dependencies with known security vulnerabilities
-bin/console security:check --end-point=http://security.sensiolabs.org/check_lock || exit $?
+bin/console security:check --end-point=https://security.symfony.com/check_lock || exit $?
 
 # Start webserver for behat
 bin/console server:run 127.0.0.1:8000 --no-debug --quiet > $TRAVIS_BUILD_DIR/webserver.log 2>&1 &
