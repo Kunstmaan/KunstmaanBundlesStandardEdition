@@ -148,10 +148,11 @@ liip_imagine:
                 thumbnail: { size: [400,null], mode: outbound, allow_upscale: false }
 
 services:
-    twig.extension.text:
-        class: Twig_Extensions_Extension_Text
-        tags:
-            - { name: twig.extension }
+#    If you do not use the SearchBundle you will need to activate this
+#    twig.extension.text:
+#        class: Twig_Extensions_Extension_Text
+#        tags:
+#            - { name: twig.extension }
 
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
