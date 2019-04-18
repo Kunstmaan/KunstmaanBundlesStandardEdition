@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "847e7cabc67ba788581faa9ba4736484",
-    "content-hash": "229a273cb3482d03fe5ebe98e0dfe7df",
+    "hash": "4a05247f0442cec03c3052e029264d5a",
+    "content-hash": "920f3a178d9fbcadbae8fb4a52ec97f5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3032,16 +3032,16 @@
         },
         {
             "name": "kunstmaan/bundles-cms",
-            "version": "5.2.3",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kunstmaan/KunstmaanBundlesCMS.git",
-                "reference": "e0dd244204779fa5c32b837e87cad987df7ab8b7"
+                "reference": "53344f03feed8adcbed348e901ac81c09a975bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/e0dd244204779fa5c32b837e87cad987df7ab8b7",
-                "reference": "e0dd244204779fa5c32b837e87cad987df7ab8b7",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanBundlesCMS/zipball/53344f03feed8adcbed348e901ac81c09a975bea",
+                "reference": "53344f03feed8adcbed348e901ac81c09a975bea",
                 "shasum": ""
             },
             "require": {
@@ -3086,6 +3086,7 @@
                 "symfony/http-foundation": "^3.4|^4.0",
                 "symfony/http-kernel": "^3.4|^4.0",
                 "symfony/inflector": "^3.4|^4.0",
+                "symfony/monolog-bridge": "^3.4|^4.0",
                 "symfony/options-resolver": "^3.4|^4.0",
                 "symfony/property-access": "^3.4|^4.0",
                 "symfony/routing": "^3.4|^4.0",
@@ -3172,7 +3173,7 @@
             "keywords": [
                 "cms"
             ],
-            "time": "2019-03-10 14:16:11"
+            "time": "2019-03-16 14:41:46"
         },
         {
             "name": "kunstmaan/google-api-custom",
